@@ -42,7 +42,7 @@ export const OrganisingGroupDialog = (
             <Dialog.Overlay className="fixed z-10 inset-0 bg-gwOrange opacity-80" />
             <div className='absolute z-20 w-full max-w-4xl top-[15%] left-1/2 transform -translate-x-1/2 py-5 p-4'>
               <Dialog.Title className='hidden'>{data.fields.Name}</Dialog.Title>
-              <Dialog.Description className='hidden'>{data.fields.IsUnion ? "Union" : "Organising group"} in {stringifyArray(...data.fields?.countryName || [])}</Dialog.Description>
+              <Dialog.Description className='hidden'>{data.fields.IsUnion ? "Union" : "Organising group"} in {stringifyArray(...data.fields?.countryNames || [])}</Dialog.Description>
               <button
                 type="button"
                 className="mb-3 rounded-xl px-2 py-1 border-box"
@@ -100,8 +100,8 @@ export const OrganisingGroupCard = ({ data, withPadding = true, withContext = tr
                   </p>
                 )}
                 <p>{data.fields.IsUnion ? "A union" : "An organising group"} active {
-                data.fields.countryCode?.length
-                  ? <span>in {pluralize('country', data.fields.countryCode?.length, true)}</span>
+                data.fields.countryCodes?.length
+                  ? <span>in {pluralize('country', data.fields.countryCodes?.length, true)}</span>
                   : <span>internationally</span>
 }. We know of {pluralize('action', data.fields["Solidarity Actions"]?.length, true)} associated with them.</p>
               </div>
@@ -141,7 +141,7 @@ export const OrganisingGroupCard = ({ data, withPadding = true, withContext = tr
                 subtitle={`This ${data.fields.IsUnion ? "union" : "organising group"}`}
               />
             </div>
-            {data.fields.countryCode?.map(code =>
+            {data.fields.countryCodes?.map(code =>
               <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white')} key={code}>
                 <SolidarityActionCountryRelatedActions
                   countryCode={code}

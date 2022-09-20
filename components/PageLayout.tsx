@@ -35,19 +35,19 @@ function Header ({  }: {  }) {
 
   return (
     <>
-    <header className='py-5 bg-gwPink space-y-2' ref={headerRef} id='static-header'>
+    <header className='py-5 space-y-2' ref={headerRef} id='static-header'>
       <div className='content-wrapper'>
         <div className='sm:flex sm:space-x-4 space-y-2 sm:space-y-0 items-top'>
-          <div className='leading-none text-4xl lg:text-[4vw] sm:w-1/2 font-identity cursor-pointer hover:text-gwPinkLight flex-shrink-0'>
-            <Link href='/'>Game Worker Solidarity</Link>
+          <div className='leading-none text-4xl lg:text-[4vw] sm:w-1/2 font-identity cursor-pointer text-light hover:text-dark flex-shrink-0'>
+            <Link href='/'>Discontent Moderators</Link>
           </div>
           <p className='leading-normal sm:leading-tight text-xl xl:text-2xl sm:w-1/2 block text-200 max-w-2xl font-light flex-shrink-0'>
-            Mapping and documenting collective movements by game workers striving to improve their working conditions.
+            Mapping and documenting collective movements by platform content moderation workers striving to improve their working conditions.
           </p>
         </div>
       </div>
     </header>
-    <nav className='top-0 sticky z-40 py-3 bg-gwPink' id='sticky-header'>
+    <nav className='top-0 sticky z-40 py-3 ' id='sticky-header'>
       <div className='text-sm md:text-base content-wrapper w-full flex flex-row flex-wrap justify-start -mx-1 space-x-1 md:-mx-2 md:space-x-3 items-center'>
         {data?.headerLinks?.map?.((link, i) => (
           <a
@@ -62,7 +62,7 @@ function Header ({  }: {  }) {
         ))}
         <div className={cx(
           isFloating ? 'opacity-100 max-w-6xl translate-x-0' : 'opacity-0 translate-x-2',
-          'hidden md:block transform ml-auto duration-200 transition-all leading-none text-xl lg:text-2xl font-identity cursor-pointer hover:text-gwPinkLight flex-shrink-0 order-1 md:order-last'
+          'hidden md:block transform ml-auto duration-200 transition-all leading-none text-xl lg:text-2xl font-identity cursor-pointer hover:text-darkLight flex-shrink-0 order-1 md:order-last'
         )} style={{ marginLeft: 'auto'}}>
           <Link href='/'>Game Worker Solidarity</Link>
         </div>
@@ -80,7 +80,7 @@ function Footer ({ }: { }) {
   })
 
   return (
-    <footer className='mt-auto bg-gwPink text-sm'>
+    <footer className='mt-auto bg-dark text-sm'>
       <div className="content-wrapper py-5 md:py-6 space-y-4 flex flex-col md:flex-row justify-between items-start align-top">
         <div className='space-y-4 flex-grow'>
           <nav className='flex flex-wrap -mx-1 md:-mx-2'>

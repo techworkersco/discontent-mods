@@ -12,7 +12,7 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}'
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: true, // or 'media' or 'class'
   theme: {
     screens: {
       sm: '640px',
@@ -56,11 +56,13 @@ module.exports = {
       },
       colors: {
         transparent: 'transparent',
-        inherit: 'inherit',
+        inherit: 'white',
+        red: 'red',
+        dark: 'black',
         gwYellow: '#EBFF00',
         gwBlue: '#3B97EC',
         gwBlueLight: '#E8EFF5',
-        gwBackground: '#F8F8F8',
+        gwBackground: 'black',
         gwPink: '#DD96FF',
         gwPink50: polished.rgba('#DD96FF', 0.5),
         gwPinkLight: '#FFCAD9'  ,
@@ -81,16 +83,16 @@ module.exports = {
       typography: theme => ({
         DEFAULT: {
           css: {
-            color: 'inherit',
-            h1: { color: 'inherit' },
-            h2: { color: 'inherit' },
-            h3: { color: 'inherit' },
-            h4: { color: 'inherit' },
-            h5: { color: 'inherit' },
+            color: '#eeeeee',
+            h1: { color: '#eeeeee' },
+            h2: { color: '#eeeeee' },
+            h3: { color: '#eeeeee' },
+            h4: { color: '#eeeeee' },
+            h5: { color: '#eeeeee' },
             a: {
-              color: '#3182ce',
+              color: '#eeeeee',
               '&:hover': {
-                color: '#2c5282',
+                color: '#eeeeee',
               },
             },
             p: {

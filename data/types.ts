@@ -269,9 +269,9 @@ export interface OrganisingGroup extends BaseRecord {
     slug?: string
     Name: string
     'Full Name'?: string
-    Country?: string[]
-    countryName?: string[]
-    countryCode?: string[]
+    Countries?: string[]
+    countryNames?: string[]
+    countryCodes?: string[]
     IsUnion?: boolean
     Website?: string
     Twitter?: string

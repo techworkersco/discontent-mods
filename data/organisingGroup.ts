@@ -12,7 +12,7 @@ export const formatOrganisingGroup = (organisingGroup: OrganisingGroup) => {
   organisingGroup.slug = organisingGroup.fields.slug || organisingGroup.id
 
   let i = 0
-  for (const countryCode of (organisingGroup.fields.countryCode || [])) {
+  for (const countryCode of (organisingGroup.fields.countryCodes || [])) {
     try {
       organisingGroup.geography.country.push(countryDataForCode(countryCode))
     } catch (e) {
@@ -30,7 +30,7 @@ export const formatOrganisingGroup = (organisingGroup: OrganisingGroup) => {
   return organisingGroup
 }
 
-const fields: Array<keyof OrganisingGroup['fields']> = ['LastModified', 'slug', 'Name', 'Full Name', 'Country', 'countryCode', 'countryName', 'Solidarity Actions', 'IsUnion', 'Website', 'Twitter']
+const fields: Array<keyof OrganisingGroup['fields']> = ['LastModified', 'slug', 'Name', 'Full Name', 'Countries', 'countryCodes', 'countryNames', 'Solidarity Actions', 'IsUnion', 'Website', 'Twitter']
 
 export const organisingGroupBase = () => airtableBase()<OrganisingGroup['fields']>(
   env.get('AIRTABLE_TABLE_NAME_GROUPS').default('Organising Groups').asString()

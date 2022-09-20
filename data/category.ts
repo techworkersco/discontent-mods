@@ -23,7 +23,7 @@ export const formatCategory = (category: Category) => {
 const fields: Array<keyof Category['fields']> = ['Name', 'Summary', 'Emoji', 'Solidarity Actions']
 
 export const categoryBase = () => airtableBase()<Category['fields']>(
-  env.get('AIRTABLE_TABLE_NAME_CATEGORIES').default('Categories').asString()
+  env.get('AIRTABLE_TABLE_NAME_CATEGORIES').default('Action Categories').asString()
 )
 
 export async function getCategories (selectArgs: QueryParams<Category['fields']> = {}): Promise<Array<Category>> {
