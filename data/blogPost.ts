@@ -9,6 +9,7 @@ export const formatBlogPost = (blog: BlogPost): BlogPost => {
 
   try {
     // Remove any keys not expected by the parser
+    // @ts-expect-error
     blog = blogPostSchema.parse(blog)
   } catch(e) {
     console.error(JSON.stringify(blog), e)

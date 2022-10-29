@@ -13,6 +13,7 @@ export const formatCompany = (company: Company) => {
 
   try {
     // Remove any keys not expected by the parser
+        // @ts-expect-error
     company = companySchema.parse(company)
   } catch(e) {
     console.error(JSON.stringify(company), e)
@@ -111,6 +112,7 @@ export const getCompanyDataByCode = async (name: string): Promise<CompanyData> =
   const solidarityActions = await getLiveSolidarityActionsByCompanyId(company.id)
 
   return {
+    // @ts-ignore-error
     company: {
       ...company,
       solidarityActions

@@ -1,31 +1,9 @@
 ///////////
 // Airtable
 
-export interface BaseRecord {
-  id: string;
-  createdTime: string;
-}
+import type { Attachment, Base as BaseRecord } from 'airtable'
 
-export interface Attachment {
-  id: string;
-  url: string;
-  filename: string;
-  size: number;
-  type: string;
-  thumbnails: Thumbnails;
-}
-
-export interface Thumbnails {
-  small: Thumbnail;
-  large: Thumbnail;
-  full?: Thumbnail;
-}
-
-export interface Thumbnail {
-  url: string;
-  width: number;
-  height: number;
-}
+export type { Attachment, BaseRecord }
 
 ////// Package and third party
 
@@ -171,6 +149,7 @@ export interface SolidarityActionAirtableRecord extends BaseRecord {
     hasPassedValidation?: boolean,
     Public?: boolean
   },
+  id: string
 }
 
 export interface SolidarityActionAirtableRecord extends BaseRecord {
@@ -212,6 +191,7 @@ export type SolidarityAction = SolidarityActionAirtableRecord & {
     LastModified: string;
     hasPassedValidation: true,
   }
+  id: string,
 }
 
 export interface BlogPost extends BaseRecord {
@@ -225,7 +205,8 @@ export interface BlogPost extends BaseRecord {
     Date: string;
     Public: true; // We can't accept records that haven't been marked for publication
   },
-  body: CopyType
+  body: CopyType,
+  id: string,
 }
 
 export interface StaticPage extends BaseRecord {
@@ -237,6 +218,7 @@ export interface StaticPage extends BaseRecord {
     Public: true; // We can't accept records that haven't been marked for publication
   },
   body: CopyType
+  id: string
 }
 
 export interface Country extends BaseRecord {
@@ -258,7 +240,8 @@ export interface Country extends BaseRecord {
   }
   solidarityActions?: SolidarityAction[],
   organisingGroups?: OrganisingGroup[],
-  summary: CopyType
+  summary: CopyType,
+  id: string
 }
 
 export interface OrganisingGroup extends BaseRecord {
@@ -283,7 +266,8 @@ export interface OrganisingGroup extends BaseRecord {
     // 'Document (from Solidarity Actions)': Attachment[]
     // 'Date (from Solidarity Actions)': string[]
     // 'Name (from Solidarity Actions)': string[]
-  }
+  },
+  id: string,
 }
 
 export interface Company extends BaseRecord {
@@ -299,7 +283,8 @@ export interface Company extends BaseRecord {
     // 'Name (from Solidarity Actions)': string[]
   }
   solidarityActions?: SolidarityAction[],
-  summary: CopyType
+  summary: CopyType,
+  id: string
 }
 
 export interface Category extends BaseRecord {
@@ -316,7 +301,8 @@ export interface Category extends BaseRecord {
     // 'Name (from Solidarity Actions)': string[]
   }
   solidarityActions?: SolidarityAction[],
-  summary: CopyType
+  summary: CopyType,
+  id: string,
 }
 
 export interface MenuItem extends BaseRecord {
@@ -325,4 +311,5 @@ export interface MenuItem extends BaseRecord {
     url: string;
     placement: Array<'Header' | 'Footer'>;
   }
+  id: string
 }

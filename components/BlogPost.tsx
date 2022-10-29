@@ -7,14 +7,14 @@ import { DateTime } from './Date';
 export function BlogPostThumbnail({ blog: b }: { blog: BlogPost }) {
   return (
     <Link href={`/analysis/${b.fields.Slug}`} key={b.fields.Slug}>
-      <article key={b.id} className='bg-white rounded-lg p-4 space-y-3 glowable cursor-pointer'>
+      <article className='bg-white rounded-lg p-4 space-y-3 glowable cursor-pointer'>
         {!!b.fields.Image?.[0] && (
           <div className='rounded-lg shadow-gwPink'>
             <Image
               layout='responsive'
-              src={b.fields.Image[0].thumbnails.full?.url || b.fields.Image[0].url}
-              width={b.fields.Image[0].thumbnails.large.width}
-              height={b.fields.Image[0].thumbnails.large.height}
+              src={b.fields.Image[0].thumbnails?.full?.url || b.fields.Image[0].url}
+              width={b.fields.Image[0].thumbnails?.large.width}
+              height={b.fields.Image[0].thumbnails?.large.height}
             />
           </div>
         )}

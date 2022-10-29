@@ -9,6 +9,7 @@ export const formatStaticPage = (staticPage: StaticPage): StaticPage => {
 
   try {
     // Remove any keys not expected by the parser
+        // @ts-expect-error
     staticPage = staticPageSchema.parse(staticPage)
   } catch(e) {
     console.error(JSON.stringify(staticPage), e)

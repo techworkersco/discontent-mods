@@ -13,6 +13,7 @@ export const formatCategory = (category: Category) => {
 
   try {
     // Remove any keys not expected by the parser
+    // @ts-expect-error
     category = categorySchema.parse(category)
   } catch(e) {
     console.error(JSON.stringify(category), e)
@@ -111,6 +112,7 @@ export const getCategoryDataByCode = async (name: string): Promise<CategoryData>
   const solidarityActions = await getLiveSolidarityActionsByCategoryId(category.id)
 
   return {
+    // @ts-expect-error
     category: {
       ...category,
       solidarityActions

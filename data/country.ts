@@ -33,6 +33,7 @@ export const formatCountry = (country: Country) => {
 
   try {
     // Remove any keys not expected by the parser
+        // @ts-expect-error
     country = countrySchema.parse(country)
   } catch(e) {
     console.error(JSON.stringify(country), e)
@@ -146,6 +147,7 @@ export const getCountryDataByCode = async (iso2: string): Promise<CountryData> =
   const organisingGroups = await getOrganisingGroupsByCountryId(country.id)
 
   return {
+    // @ts-ignore-error
     country: {
       ...country,
       organisingGroups,

@@ -99,8 +99,8 @@ const fields: Array<keyof SolidarityActionAirtableRecord["fields"]> = [
   "CategoryEmoji",
 ];
 
-// @ts-ignore
 export const solidarityActionBase = () =>
+// @ts-expect-error
   airtableBase()<SolidarityActionAirtableRecord["fields"]>(
     env
       .get("AIRTABLE_TABLE_NAME_SOLIDARITY_ACTIONS")

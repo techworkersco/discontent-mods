@@ -23,6 +23,7 @@ export const formatOrganisingGroup = (organisingGroup: OrganisingGroup) => {
 
   try {
     // Remove any keys not expected by the parser
+        // @ts-expect-error
     organisingGroup = organisingGroupSchema.parse(organisingGroup)
   } catch(e) {
     console.error(JSON.stringify(organisingGroup), e)
@@ -128,6 +129,7 @@ export const getOrganisingGroupDataByName = async (name: string): Promise<Organi
   const solidarityActions = await getLiveSolidarityActionsByOrganisingGroupId(organisingGroup.id)
 
   return {
+    // @ts-expect-error
     organisingGroup: {
       ...organisingGroup,
       solidarityActions

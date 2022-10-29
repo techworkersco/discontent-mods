@@ -40,7 +40,7 @@ export default function Page({ moreArticles, article, errorMessage }: PageProps)
           <div className='space-x-4 text-sm font-semibold text-left'>
             <DateTime date={article.fields.Date} />
           </div>
-          {!!article.fields.Image?.[0] ? (
+          {!!article.fields.Image?.[0].thumbnails ? (
             <>
               <div className='flex flex-col justify-center space-y-4'>
                 <h1 className='font-identity text-5xl md:text-6xl'>{article.fields.Title}</h1>

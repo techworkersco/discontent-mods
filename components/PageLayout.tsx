@@ -64,7 +64,7 @@ function Header ({  }: {  }) {
           isFloating ? 'opacity-100 max-w-6xl translate-x-0' : 'opacity-0 translate-x-2',
           'hidden md:block transform ml-auto duration-200 transition-all leading-none text-xl lg:text-2xl font-identity cursor-pointer hover:text-darkLight flex-shrink-0 order-1 md:order-last'
         )} style={{ marginLeft: 'auto'}}>
-          <Link href='/'>Game Worker Solidarity</Link>
+          <Link href='/'>Discontent Moderators</Link>
         </div>
       </div>
     </nav>
@@ -75,7 +75,7 @@ function Header ({  }: {  }) {
 
 function Footer ({ }: { }) {
   const { data } = useSWR<{ footerLinks: MenuItem[] }>('/api/links?placement=Header', { 
-    // Data should have been loaded by _app.tsx already,
+    // Data should have been loaded by _app.tsx already, 
     ...doNotFetch()
   })
 
@@ -95,14 +95,9 @@ function Footer ({ }: { }) {
           </nav>
           <div className='md:flex space-y-4 md:space-y-0 md:space-x-5'>
             <div>
-              Site developed by <a className='link' href='https://commonknowledge.coop'>
-                Common Knowledge
-              </a> and <a className='link' href='http://shaunabuckley.com/'>
-                Shauna Buckley
+              Inspired by/forked from <a className='link' href='https://github.com/gameworkersolidarity/website'>
+              gameworkersolidarity.com
               </a>
-            </div>
-            <div>
-              Funded by <a className='link' href='https://www.open.ac.uk'>The Open University</a>
             </div>
           </div>
         </div>
