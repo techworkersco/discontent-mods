@@ -1,9 +1,14 @@
+const stailwc = require("stailwc/install");
+
+/** @type {import('next').NextConfig} */
 module.exports = {
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback.fs = false;
-    }
-    return config;
+  reactStrictMode: true,
+  // swcMinify: true,
+  experimental: {
+    swcPlugins: [stailwc({ })],
+  },
+  compiler: {
+    emotion: true,
   },
   images: {
     domains: ['dl.airtable.com'],

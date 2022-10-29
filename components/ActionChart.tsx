@@ -8,7 +8,6 @@ import { timeMonth, timeMonths, timeYears } from 'd3-time';
 import { timeFormat } from 'd3-time-format';
 import { min } from 'date-fns';
 import { useMemo } from 'react';
-import { theme } from 'twin.macro';
 import { SolidarityAction } from '../data/types';
 import { useMediaQuery } from '../utils/mediaQuery';
 import { up } from '../utils/screens';
@@ -89,13 +88,15 @@ export function CumulativeChart ({
   return (
     <ThemeContext.Provider value={{
       backgroundColor: 'transparent',
-      colors: [theme`colors.gwPink`],
+      // @ts-expect-error
+      colors: [tw`colors.gwPink`],
       axisStyles: {
         x: {
           // @ts-ignore
           bottom: {
             axisLine: {
-              stroke: theme`colors.gray.400`
+              // @ts-expect-error
+              stroke: tw`colors.gray.400`
             },
             tickLine: {
               stroke: 'transparent'

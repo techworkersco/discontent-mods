@@ -17,7 +17,7 @@ import pluralize from 'pluralize';
 import { createContext, Dispatch, memo, SetStateAction, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Supercluster from 'supercluster';
-import { theme } from 'twin.macro';
+
 import { actionUrl } from '../data/solidarityAction';
 import { SolidarityAction } from '../data/types';
 import { bboxToBounds, getViewportForFeatures } from '../utils/geo';
@@ -70,7 +70,8 @@ export function Map({ data, onSelectCountry, ...initialViewport }: {
     const colorScale = scalePow()
       .exponent(0.5)
       .domain([min(domain), median(domain), max(domain)] as number[])
-      .range([theme`colors.gwBlue`, theme`colors.gwPink`, theme`colors.gwOrange`] as any)
+      // @ts-expect-error
+      .range([tw`colors.gwBlue`, tw`colors.gwPink`, tw`colors.gwOrange`] as any)
 
     for (const code in counts) {
       const count = counts[code]
@@ -312,7 +313,8 @@ const CountryLayer = memo(({
                 ['get', 'iso_3166_1'],
                 ["literal", countryCounts]
               ],
-              theme`colors.gray.200`
+              // @ts-expect-error
+              tw`colors.gray.200`
           ],
         }
       }}

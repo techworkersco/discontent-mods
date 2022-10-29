@@ -1,11 +1,12 @@
-import { theme } from 'twin.macro'
+
 
 /**
  * NOTE: Keep this in sync with the (custom) Tailwind theme `screens` config.
  * @see https://tailwindcss.com/docs/breakpoints
  */
 export type Screen = "sm" | "md" | "lg" | "xl" | "2xl";
-export const screens = theme`screens`
+// @ts-expect-error
+export const screens = tw`screens`
 
 // The maximum value is calculated as the minimum of the next one less 0.02px.
 // @see https://www.w3.org/TR/mediaqueries-4/#mq-min-max
