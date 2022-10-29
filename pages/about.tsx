@@ -57,7 +57,7 @@ export default function Page({ article, errorMessage }: PageProps) {
               </div>
               <section className='space-y-3'>
                 <h2 className='font-semibold text-lg'>Credits</h2>
-                <p>This website is a fork of the <a href="https://gameworkserssolidarity.com/">gameworkerssolidarity.com</a> website</p>
+                <p>This website is a fork of the <a href="https://gameworkersolidarity.com/">gameworkersolidarity.com</a> website</p>
               </section>
             </div>
           </div>
