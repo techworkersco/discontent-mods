@@ -170,8 +170,8 @@ export function Map({ data, onSelectCountry, ...initialViewport }: {
             height: '100%'
           }}
           {...viewport}
-          accessToken={env.get('NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN').default('pk.eyJ1IjoiY29tbW9ua25vd2xlZGdlIiwiYSI6ImNrcHB2cnBoMDByNnUydm1uMm5qenB5bGoifQ.8ioYIcBD6YJaNvczuhLtEQ').asString()}
-          mapStyle={env.get('NEXT_PUBLIC_MAPBOX_STYLE_URL').default('mapbox://styles/commonknowledge/ckqsa4g09145h17p84g69t7ns').asString()}
+          accessToken={env.get('NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN').default('pk.eyJ1IjoicmVyb290aW5nMjA0MCIsImEiOiJjbDl0eHN1cTkwYW55M29uemxmMTR0OTVjIn0.IeLswEOZzPxx6gbxeGSNaw').asString()}
+          mapStyle={env.get('NEXT_PUBLIC_MAPBOX_STYLE_URL').default('mapbox://styles/rerooting2040/cl9tzuyjo002114mi4hqe1nd6').asString()}
           onViewportChange={updateViewport}
           className="rounded-xl"
           ref={mapRef}
