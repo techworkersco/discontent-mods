@@ -312,7 +312,7 @@ const CountryLayer = memo(({
                 ['get', 'iso_3166_1'],
                 ["literal", countryCounts]
               ],
-              theme`colors.gray.200`
+              theme`colors.gray.900`
           ],
         }
       }}

@@ -11,7 +11,7 @@ import { useRef } from 'react';
 
 export default function PageLayout ({ children }: { children: any }) {
   return (
-    <div className='min-h-screen flex flex-col relative'>
+    <div className='min-h-screen flex flex-col relative text-light'>
       <Header />
 
       <main>
