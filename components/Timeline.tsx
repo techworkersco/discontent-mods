@@ -505,7 +505,7 @@ export function SolidarityActionsTimeline ({
                             <span className='link'>{union.fields.Name}</span>
                             <span>
                               <span className='inline-block ml-2 text-gray-400 rounded-full text-xs'>
-                                {union.fields.IsUnion ? 'Union' : 'Organising group'} in
+                                {union.fields.IsUnion ? 'Union' : 'NGO'} in
                               </span>
                               &nbsp;
                               <span className='inline-block text-gray-400 rounded-full text-xs'>
