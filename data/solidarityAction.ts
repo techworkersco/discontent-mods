@@ -97,6 +97,7 @@ const fields: Array<keyof SolidarityActionAirtableRecord["fields"]> = [
   "Category",
   "CategoryName",
   "CategoryEmoji",
+  "isUnionGroups"
 ];
 
 export const solidarityActionBase = () =>

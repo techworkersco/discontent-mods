@@ -460,7 +460,7 @@ export function SolidarityActionCard({
   const seoTitle = `${format(new Date(data.fields.Date), "dd MMM yyyy")}: ${
     data.fields.Name
   }`;
-
+console.log(data)
   return (
     <>
       <NextSeo
@@ -549,7 +549,7 @@ export function SolidarityActionCard({
             {data.fields["Organising Groups"]?.map((organisingGroupId, i) => (
               <div className='p-4 md:px-8 bg-white' key={organisingGroupId}>
                 <SolidarityActionRelatedActions
-                  subtitle='Organising group'
+                  subtitle={((data.fields?.isUnionGroups && data.fields.isUnionGroups[i]) ? 'Union' : 'NGO')}
                   url={`/group/${organisingGroupId}`}
                   name={data.fields.organisingGroupName![i]}
                   buttonLabel={<span>Learn more &rarr;</span>}

@@ -147,7 +147,8 @@ export interface SolidarityActionAirtableRecord extends BaseRecord {
     Document?: Attachment[];
     DisplayStyle?: "Featured" | null
     hasPassedValidation?: boolean,
-    Public?: boolean
+    Public?: boolean,
+    isUnionGroups?: boolean[]
   },
   id: string
 }
@@ -176,7 +177,8 @@ export interface SolidarityActionAirtableRecord extends BaseRecord {
     Document?: Attachment[];
     DisplayStyle?: "Featured" | null
     hasPassedValidation?: boolean,
-    Public?: boolean
+    Public?: boolean,
+    isUnionGroups?: boolean[]
   },
 }
 

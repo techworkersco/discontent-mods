@@ -70,6 +70,7 @@ export const OrganisingGroupSEO = ({ data }: { data: OrganisingGroup }) => (
 )
 
 export const OrganisingGroupCard = ({ data, withPadding = true, withContext = true }: { data: OrganisingGroup, withPadding?: boolean, withContext?: boolean }) => {
+  console.log(data.fields)
   return (
     <>
       <article className={cx('space-y-2px rounded-xl overflow-hidden glowable')}>

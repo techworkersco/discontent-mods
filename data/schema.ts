@@ -185,8 +185,7 @@ export const solidarityActionSchema = solidarityActionAirtableRecordSchema.and(
         Name: z.string(),
         Date: z.string(),
         Public: z.literal(true),
-        LastModified: z.string(),
-        hasPassedValidation: z.literal(true),
+        LastModified: z.string()
       })
     ),
   })
