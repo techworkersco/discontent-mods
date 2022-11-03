@@ -99,7 +99,7 @@ export const OrganisingGroupCard = ({ data, withPadding = true, withContext = tr
                     {data.fields["Full Name"].trimEnd()}
                   </p>
                 )}
-                <p>{data.fields.IsUnion ? "A union" : "An organising group"} active {
+                <p>{data.fields.IsUnion ? "A union" : "An ngo"} active {
                 data.fields.countryCodes?.length
                   ? <span>in {pluralize('country', data.fields.countryCodes?.length, true)}</span>
                   : <span>internationally</span>
@@ -129,7 +129,7 @@ export const OrganisingGroupCard = ({ data, withPadding = true, withContext = tr
           </div>
         </div>
         <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white')}>
-          Have more info about this {data.fields.IsUnion ? "union" : "organising group"}? <a className='link' href={`mailto:${projectStrings.email}`}>Let us know &rarr;</a>
+          Have more info about this {data.fields.IsUnion ? "union" : "ngo"}? <a className='link' href={`mailto:${projectStrings.email}`}>Let us know &rarr;</a>
         </div>
         {withContext && (
           <div className='grid gap-[2px] grid-cols-2'>
@@ -138,7 +138,7 @@ export const OrganisingGroupCard = ({ data, withPadding = true, withContext = tr
                 name={data.fields.Name}
                 metadata={pluralize('related action', data.fields["Solidarity Actions"]?.length, true)}
                 url={`/?group=${data.fields.Name}`}
-                subtitle={`This ${data.fields.IsUnion ? "union" : "organising group"}`}
+                subtitle={`This ${data.fields.IsUnion ? "union" : "ngo"}`}
               />
             </div>
             {data.fields.countryCodes?.map(code =>
