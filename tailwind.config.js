@@ -66,7 +66,7 @@ module.exports = {
         gwBackground: 'transparent',
         gwPink: 'red',
         gwPink50: polished.rgba('red', 0.5),
-        gwPinkLight: '#FFCAD9'  ,
+        gwPinkLight: 'red',
         gwOrange: '#FF8038',
         gwOrange50: polished.rgba('#FF8038', 0.5),
         gwOrangeLight: '#FFC58E',

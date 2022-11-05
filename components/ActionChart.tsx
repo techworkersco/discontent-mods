@@ -15,7 +15,7 @@ import { up } from '../utils/screens';
 
 export function CumulativeMovementChart ({ data, onSelectYear }: { data: SolidarityAction[], cumulative?: boolean, onSelectYear?: (year: string) => void }) {
   const actionDates = data.map(d => new Date(d.fields.Date))
-  const minDate = min([new Date('2000-01-01'), ...actionDates])
+  const minDate = min([new Date('2018-01-01'), ...actionDates])
   const maxDate = new Date()
 
   return (
@@ -89,13 +89,13 @@ export function CumulativeChart ({
   return (
     <ThemeContext.Provider value={{
       backgroundColor: 'transparent',
-      colors: [theme`colors.gwPink`],
+      colors: [theme`colors.gwPink50`],
       axisStyles: {
         x: {
           // @ts-ignore
           bottom: {
             axisLine: {
-              stroke: theme`colors.gray.700`
+              stroke: theme`colors.gray.500`
             },
             tickLine: {
               stroke: 'transparent'

@@ -72,6 +72,6 @@ body {
   }
 
   .nav-link {
-    @apply font-semibold underline transition-all duration-75 bg-transparent hover:bg-white hover:shadow-innerGwPink rounded-lg inline-block px-3 -mx-2 md:-mx-1 py-2;
+    @apply font-semibold underline transition-all duration-75 bg-transparent hover:bg-white  rounded-lg inline-block px-3 -mx-2 md:-mx-1 py-2;
   }
 }

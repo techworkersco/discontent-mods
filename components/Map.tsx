@@ -70,7 +70,7 @@ export function Map({ data, onSelectCountry, ...initialViewport }: {
     const colorScale = scalePow()
       .exponent(0.5)
       .domain([min(domain), median(domain), max(domain)] as number[])
-      .range([theme`colors.gwBlue`, theme`colors.gwPink`, theme`colors.gwOrange`] as any)
+      .range([theme`colors.red`, theme`colors.gwOrange`] as any)
 
     for (const code in counts) {
       const count = counts[code]

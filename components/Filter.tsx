@@ -14,13 +14,13 @@ export function FilterButton ({
   return (
     <div className={cx(
       !isOpen && !hasSelections ? 'border-gray-300' : '',
-      isOpen ? 'border-b-0 rounded-b-none bg-white z-50 border-gwPink' : 'hover:shadow-innerGwPink',
+      isOpen ? 'border-b-0 rounded-b-none bg-white z-50 border-gwPink' : '',
       hasSelections ? 'border-gwPink' : '',
       (
         !isOpen && hasSelections ? 'shadow-innerGwPink' :
         isOpen && hasSelections ? 'border-gwPink' : 
         // Untouched state
-        'hover:border-gwPink active:bg-gwPink'
+        ' active:bg-gwPink'
       ),
       'rounded-lg text-black border-2 px-3 py-2 text-sm font-semibold w-full relative'
     )}>

@@ -27,7 +27,7 @@ export default function Page() {
 }
 
 const EMBED_URL = qs.stringifyUrl({
-  url: `https://airtable.com/embed/${env.get('AIRTABLE_SUBMIT_EMBED_ID').default('shrghSX8tcj2XwhqO').asString()}`,
+  url: `https://airtable.com/embed/${env.get('AIRTABLE_SUBMIT_EMBED_ID').default('shrfrklFYYM4jqt7j').asString()}`,
   query: {
     backgroundColor: 'red'
   }

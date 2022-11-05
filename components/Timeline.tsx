@@ -456,7 +456,7 @@ export function SolidarityActionsTimeline ({
                     type='search' 
                     value={filterText}
                     onChange={e => setFilterText(e.target.value.trimStart())}
-                    className='rounded-lg border-2 border-gray-300 px-3 py-2 text-sm font-semibold w-full hover:shadow-innerGwPink hover:border-2 hover:border-gwPink focus:border-gwPink transition duration-75'
+                    className='rounded-lg border-2 border-gray-300 px-3 py-2 text-sm font-semibold w-full hover:border-2 transition duration-75'
                   />
                 </div>
               </div>
