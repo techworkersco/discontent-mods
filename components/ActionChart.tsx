@@ -95,7 +95,7 @@ export function CumulativeChart ({
           // @ts-ignore
           bottom: {
             axisLine: {
-              stroke: theme`colors.gray.400`
+              stroke: theme`colors.gray.700`
             },
             tickLine: {
               stroke: 'transparent'

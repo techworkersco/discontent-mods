@@ -26,7 +26,7 @@ export default function Page({ group, errorMessage }: PageProps) {
   return (
     <PageLayout>
       <OrganisingGroupSEO data={group} />
-      <div className='bg-gwOrangeLight' style={{ minHeight: '66vh' }}>
+      <div className='bg-light' style={{ minHeight: '66vh' }}>
         <div className='max-w-4xl mx-auto py-5 px-4'>
           <OrganisingGroupCard data={group} />
         </div>

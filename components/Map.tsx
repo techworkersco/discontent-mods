@@ -502,7 +502,7 @@ const ClusterMarker = ({ longitude, latitude, actions, label, isSelected, setSel
                       { shallow: true }
                     )
                   }}
-                  className='hover:bg-gwOrangeLight transition duration-75 p-1 rounded-md'
+                  className='hover:bg-dark transition duration-75 p-1 rounded-md'
                 >
                   <ActionMetadata data={action} />
                   <div className='text-base -mt-1'>{action.fields.Name}</div>

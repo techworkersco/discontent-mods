@@ -4,7 +4,6 @@ import App from 'next/app';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { SWRConfig } from 'swr';
-import { KonamiCode } from '../components/KonamiCode';
 import { getMenuItems } from '../data/menuItem';
 import { useCanonicalURL } from '../data/seo';
 import { projectStrings } from '../data/site';
@@ -24,13 +23,13 @@ function MyApp({ Component, pageProps, headerLinks, footerLinks }) {
   const router = useRouter()
 
   useEffect(() => {
-    Fathom.load('OZSKHUQE', {
-      includedDomains: ['gameworkersolidarity.com', 'www.gameworkersolidarity.com'],
-      url: 'https://skunk.gameworkersolidarity.com/script.js',
-    })
+    // Fathom.load('OZSKHUQE', {
+    //   includedDomains: ['gameworkersolidarity.com', 'www.gameworkersolidarity.com'],
+    //   url: 'https://skunk.gameworkersolidarity.com/script.js',
+    // })
 
     function onRouteChangeComplete() {
-      Fathom.trackPageview()
+      // Fathom.trackPageview()
     }
 
 
@@ -72,7 +71,6 @@ function MyApp({ Component, pageProps, headerLinks, footerLinks }) {
         }}
       />
       <div>
-        <KonamiCode />
         <Component {...pageProps} />
       </div>
     </SWRConfig>

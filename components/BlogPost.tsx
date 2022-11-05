@@ -7,7 +7,7 @@ import { DateTime } from './Date';
 export function BlogPostThumbnail({ blog: b }: { blog: BlogPost }) {
   return (
     <Link href={`/analysis/${b.fields.Slug}`} key={b.fields.Slug}>
-      <article className='bg-white rounded-lg p-4 space-y-3 glowable cursor-pointer'>
+      <article className='bg-white rounded-lg p-4 space-y-3 cursor-pointer'>
         {!!b.fields.Image?.[0] && (
           <div className='rounded-lg shadow-gwPink'>
             <Image

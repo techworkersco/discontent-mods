@@ -39,7 +39,7 @@ export const OrganisingGroupDialog = (
         {!!data && (
           <>
             <OrganisingGroupSEO data={data} />
-            <Dialog.Overlay className="fixed z-10 inset-0 bg-gwOrange opacity-80" />
+            <Dialog.Overlay className="fixed z-10 inset-0 bg-dark opacity-80" />
             <div className='absolute z-20 w-full max-w-4xl top-[15%] left-1/2 transform -translate-x-1/2 py-5 p-4'>
               <Dialog.Title className='hidden'>{data.fields.Name}</Dialog.Title>
               <Dialog.Description className='hidden'>{data.fields.IsUnion ? "Union" : "Organising group"} in {stringifyArray(...data.fields?.countryNames || [])}</Dialog.Description>
@@ -73,7 +73,7 @@ export const OrganisingGroupCard = ({ data, withPadding = true, withContext = tr
   console.log(data.fields)
   return (
     <>
-      <article className={cx('space-y-2px rounded-xl overflow-hidden glowable')}>
+      <article className={cx('space-y-2px rounded-xl overflow-hidden')}>
         <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white')}>
           <div className='text-sm'>
             <div className='flex flex-wrap tracking-tight'>

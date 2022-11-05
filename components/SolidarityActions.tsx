@@ -85,7 +85,7 @@ export function SolidarityActionDialog({
       >
         {selectedAction?.fields && (
           <>
-            <Dialog.Overlay className='fixed z-10 inset-0 bg-gwOrange opacity-80' />
+            <Dialog.Overlay className='fixed z-10 inset-0 bg-dark opacity-80' />
             <div className='absolute z-20 w-full max-w-4xl top-[1%] left-1/2 transform -translate-x-1/2 py-5 p-4'>
               <Dialog.Title className='hidden'>
                 {selectedAction.fields.Name}
@@ -339,7 +339,7 @@ export function SolidarityActionItem({ data }: { data: SolidarityAction }) {
   const isFeatured = data.fields.DisplayStyle === "Featured";
 
   return (
-    <article className={cx("bg-white rounded-xl p-4 text-sm glowable")}>
+    <article className={cx("bg-white rounded-xl p-4 text-sm")}>
       <ActionMetadata data={data} />
       <div>
         {isFeatured ? (
