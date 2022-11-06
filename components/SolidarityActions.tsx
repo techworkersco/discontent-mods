@@ -374,16 +374,16 @@ export function SolidarityActionItem({ data }: { data: SolidarityAction }) {
             />
           </h3>
         )}
-        <div className='flex flex-row mt-3 flex-wrap'>
-          {data.fields.Link && (
-            <a href={data.fields.Link} className='block my-1 mr-2'>
-              <Emoji symbol='🔗' label='Link' className='align-baseline' />
+        <div className="block">
+          {data.fields.Link && data.fields.Link.replace('\n\n', ',').replace('\n', ',').split(',').map(link => (
+            <a href={link} className='inline-block'>
+              <Emoji symbol='🔗' label={`${new URL(link).hostname} link`} className='align-baseline' />
               &nbsp;
-              <span className='align-baseline underline text-inherit'>
-                {new URL(data.fields.Link).hostname}
+              <span className='align-baseline underline text-dark'>
+                {new URL(link).hostname}
               </span>
             </a>
-          )}
+          ))}
           {data.fields.Document?.map(doc => (
             <DocumentLink doc={doc} key={doc.id} />
           ))}
@@ -405,7 +405,7 @@ export function DocumentLink({
       <span className={cx(withPreview && "block")}>
         <Emoji symbol='📑' label='File attachment' className='align-baseline' />
         &nbsp;
-        <span className='align-baseline underline text-inherit'>
+        <span className='align-baseline underline'>
           {doc.filename}
         </span>
         &nbsp;
@@ -427,9 +427,14 @@ export function DocumentLink({
 export function ActionMetadata({ data }: { data: SolidarityAction }) {
   return (
     <div className='flex flex-wrap tracking-tight'>
-      <span className='font-semibold pr-3'>
-        <DateTime date={data.fields.Date} />
-      </span>
+      <Link
+        key={data.id}
+        href={`/action/${data.fields.slug}`}
+      >
+        <span className='font-semibold pr-3 cursor-pointer'>
+          <DateTime date={data.fields.Date} />
+        </span>
+      </Link>
       {data.fields.Location ? (
         <span className='pr-1'>{data.fields.Location}</span>
       ) : null}
@@ -460,7 +465,6 @@ export function SolidarityActionCard({
   const seoTitle = `${format(new Date(data.fields.Date), "dd MMM yyyy")}: ${
     data.fields.Name
   }`;
-console.log(data)
   return (
     <>
       <NextSeo
@@ -497,16 +501,16 @@ console.log(data)
               dangerouslySetInnerHTML={{ __html: data.summary.html }}
             />
           )}
-          <div className='flex flex-row space-x-4 mt-3 text-sm'>
-            {data.fields.Link && (
-              <a href={data.fields.Link} className='block my-1'>
-                <Emoji symbol='🔗' label='Link' className='align-baseline' />
-                &nbsp;
-                <span className='align-baseline underline text-inherit'>
-                  {new URL(data.fields.Link).hostname}
-                </span>
-              </a>
-            )}
+          <div className='block mt-3 text-sm'>
+          {data.fields.Link && data.fields.Link.replace('\n\n', ',').replace('\n', ',').split(',').map(link => (
+            <a href={link} className="block mb-2" title={`a related ${new URL(link).hostname} link`}>
+              <Emoji symbol='🔗' label={`${new URL(link).hostname} link`} className='align-baseline' />
+              &nbsp;
+              <span className='align-baseline underline text-dark'>
+                {new URL(link).hostname}
+              </span>
+            </a>
+          ))}
           </div>
         </div>
         {data.fields.Document?.length && (
@@ -549,7 +553,11 @@ console.log(data)
             {data.fields["Organising Groups"]?.map((organisingGroupId, i) => (
               <div className='p-4 md:px-8 bg-white' key={organisingGroupId}>
                 <SolidarityActionRelatedActions
-                  subtitle={((data.fields?.isUnionGroups && data.fields.isUnionGroups[i]) ? 'Union' : 'NGO')}
+                  subtitle={
+                    data.fields?.isUnionGroups && data.fields.isUnionGroups[i]
+                      ? "Union"
+                      : "NGO"
+                  }
                   url={`/group/${organisingGroupId}`}
                   name={data.fields.organisingGroupName![i]}
                   buttonLabel={<span>Learn more &rarr;</span>}
