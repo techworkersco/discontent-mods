@@ -15,10 +15,10 @@ export function FilterButton ({
     <div className={cx(
       !isOpen && !hasSelections ? 'border-gray-300' : '',
       isOpen ? 'border-b-0 rounded-b-none bg-white z-50 border-gwPink' : '',
-      hasSelections ? 'border-gwPink' : '',
+      hasSelections ? 'border-gwRed' : '',
       (
-        !isOpen && hasSelections ? 'shadow-innerGwPink' :
-        isOpen && hasSelections ? 'border-gwPink' : 
+        !isOpen && hasSelections ? 'border-gwRed' :
+        isOpen && hasSelections ? 'border-gwRed' : 
         // Untouched state
         ' active:bg-gwPink'
       ),

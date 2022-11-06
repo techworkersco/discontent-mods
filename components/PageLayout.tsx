@@ -39,7 +39,7 @@ function Header ({  }: {  }) {
       <div className='content-wrapper'>
         <div className='sm:flex sm:space-x-4 space-y-2 sm:space-y-0 items-top'>
           <div className='leading-none text-4xl lg:text-[4vw] sm:w-1/2 font-identity cursor-pointer text-light hover:text-dark flex-shrink-0'>
-            <Link href='/'>Discontent Moderators</Link>
+            <Link href='/'><><span className='text-gwRed'>Dis</span>content Moderators</></Link>
           </div>
           <p className='leading-normal sm:leading-tight text-xl xl:text-2xl sm:w-1/2 block text-200 max-w-2xl font-light flex-shrink-0'>
             Mapping and documenting collective movements by platform content moderation workers striving to improve their working conditions.
