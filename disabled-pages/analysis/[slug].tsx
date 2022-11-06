@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo';
 import env from 'env-var';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import PageLayout from '../../components/PageLayout';
-import ErrorPage from '../404'
+import ErrorPage from '../../pages/404'
 import Image from 'next/image';
 import { DateTime } from '../../components/Date';
 import { BlogPostThumbnail } from '../../components/BlogPost';
