@@ -27,7 +27,7 @@ export default function Page({ article, errorMessage }: PageProps) {
         <article className='space-y-2'>
           <h1 className='font-identity text-6xl mb-5'>{article.fields.Title}</h1>
           <p className='text-4xl font-semibold mb-5'>{article.fields.Summary}</p>
-          <div className='prose text-lg' dangerouslySetInnerHTML={{ __html: article.body.html }} />
+          <div className='text-lg text-dark' dangerouslySetInnerHTML={{ __html: article.body.html }} />
         </article>
       </section>
     </PageLayout>

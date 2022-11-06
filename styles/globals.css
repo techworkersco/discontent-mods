@@ -9,8 +9,8 @@ body {
 
 @font-face {
   font-family: "Big Shoulders Stencil Text";
-  src: url("/fonts/BigShouldersStencilText-Medium.ttf") format("truetype"),
-    url("/fonts/BigShouldersStencilText-Medium.ttf") format("truetype");
+  src: url("/fonts/BigShouldersStencilText-Bold.ttf") format("truetype"),
+    url("/fonts/BigShouldersStencilText-Bold.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -40,6 +40,9 @@ body {
   }
 
   .prose a:hover {
+    color: inherit;
+  }
+  .prose h1, h2, h3, h4 {
     color: inherit;
   }
 

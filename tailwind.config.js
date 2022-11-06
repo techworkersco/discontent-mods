@@ -118,7 +118,7 @@ module.exports = {
               // backgroundSize: '32px 38px',
               paddingLeft: 40,
               ' p:first-of-type::before': {
-                content: '"👾" !important',
+                content: '"📢" !important',
                 float: 'left',
                 marginLeft: -40
               },

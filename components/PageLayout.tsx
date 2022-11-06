@@ -47,8 +47,9 @@ function Header ({  }: {  }) {
         </div>
       </div>
     </header>
-    <nav className='top-0 sticky z-40 py-3 ' id='sticky-header'>
+    <nav className='top-0 sticky z-40 py-3 bg-white' id='sticky-header'>
       <div className='text-sm md:text-base content-wrapper w-full flex flex-row flex-wrap justify-start -mx-1 space-x-1 md:-mx-2 md:space-x-3 items-center'>
+      {isFloating && <Link href='/'><span className='text-gwRed font-identity leading-none text-4xl'>D</span></Link>}
         {data?.headerLinks?.map?.((link, i) => (
           <a
             href={link.fields.url}
@@ -80,7 +81,7 @@ function Footer ({ }: { }) {
   })
 
   return (
-    <footer className='mt-auto bg-dark text-sm text-bg'>
+    <footer className='mt-auto bg-dark text-sm text-bg text-white'>
       <div className="content-wrapper py-5 md:py-6 space-y-4 flex flex-col md:flex-row justify-between items-start align-top">
         <div className='space-y-4 flex-grow'>
           <nav className='flex flex-wrap -mx-1 md:-mx-2'>
