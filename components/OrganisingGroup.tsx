@@ -42,7 +42,7 @@ export const OrganisingGroupDialog = (
             <Dialog.Overlay className="fixed z-10 inset-0 bg-dark opacity-80" />
             <div className='absolute z-20 w-full max-w-4xl top-[15%] left-1/2 transform -translate-x-1/2 py-5 p-4'>
               <Dialog.Title className='hidden'>{data.fields.Name}</Dialog.Title>
-              <Dialog.Description className='hidden'>{data.fields.IsUnion ? "Union" : "Organising group"} in {stringifyArray(...data.fields?.countryNames || [])}</Dialog.Description>
+              <Dialog.Description className='hidden'>{data.fields.IsUnion ? "Union" : "NGO"} in {stringifyArray(...data.fields?.countryNames || [])}</Dialog.Description>
               <button
                 type="button"
                 className="mb-3 rounded-xl px-2 py-1 border-box"
@@ -77,7 +77,7 @@ export const OrganisingGroupCard = ({ data, withPadding = true, withContext = tr
         <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white')}>
           <div className='text-sm'>
             <div className='flex flex-wrap tracking-tight'>
-              <span className='pr-3'>{data.fields.IsUnion ? "Union" : "Organising group"}</span>
+              <span className='pr-3'>{data.fields.IsUnion ? "Union" : "NGO"}</span>
               {data.geography?.country.map(country => (
                 <span className='pr-3' key={country.iso3166}>
                   <Emoji

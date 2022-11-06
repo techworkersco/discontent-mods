@@ -38,7 +38,7 @@ function Header ({  }: {  }) {
     <header className='py-5 space-y-2' ref={headerRef} id='static-header'>
       <div className='content-wrapper'>
         <div className='sm:flex sm:space-x-4 space-y-2 sm:space-y-0 items-top'>
-          <div className='leading-none text-4xl lg:text-[4vw] sm:w-1/2 font-identity cursor-pointer text-light hover:text-dark flex-shrink-0'>
+          <div className='leading-none text-4xl lg:text-[4vw] font-identity cursor-pointer text-light hover:text-dark flex-shrink-0'>
             <Link href='/'><><span className='text-gwRed'>Dis</span>content Moderators</></Link>
           </div>
           <p className='leading-normal sm:leading-tight text-xl xl:text-2xl sm:w-1/2 block text-200 max-w-2xl font-light flex-shrink-0'>
@@ -61,7 +61,7 @@ function Header ({  }: {  }) {
           </a>
         ))}
         <div className={cx(
-          isFloating ? 'opacity-100 max-w-6xl translate-x-0' : 'opacity-0 translate-x-2',
+          isFloating ? 'opacity-100 max-w-6xl translate-x-0 bg-white' : 'opacity-0 translate-x-2',
           'hidden md:block transform ml-auto duration-200 transition-all leading-none text-xl lg:text-2xl font-identity cursor-pointer hover:text-darkLight flex-shrink-0 order-1 md:order-last'
         )} style={{ marginLeft: 'auto'}}>
           <Link href='/'>Discontent Moderators</Link>
@@ -80,7 +80,7 @@ function Footer ({ }: { }) {
   })
 
   return (
-    <footer className='mt-auto bg-dark text-sm'>
+    <footer className='mt-auto bg-dark text-sm text-bg'>
       <div className="content-wrapper py-5 md:py-6 space-y-4 flex flex-col md:flex-row justify-between items-start align-top">
         <div className='space-y-4 flex-grow'>
           <nav className='flex flex-wrap -mx-1 md:-mx-2'>
@@ -95,7 +95,7 @@ function Footer ({ }: { }) {
           </nav>
           <div className='md:flex space-y-4 md:space-y-0 md:space-x-5'>
             <div>
-              Inspired by/forked from <a className='link' href='https://github.com/gameworkersolidarity/website'>
+              Forked from <a className='link' href='https://github.com/gameworkersolidarity/website'>
               gameworkersolidarity.com
               </a>
             </div>

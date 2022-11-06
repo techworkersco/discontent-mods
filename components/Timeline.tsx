@@ -500,7 +500,7 @@ export function SolidarityActionsTimeline ({
                           <li className='space-x-1'>
                             <Emoji
                               symbol={categories.find(c => c.fields.Name === 'union')?.fields.Emoji || '🤝'}
-                              label={union.fields.IsUnion ? 'Union' : 'Organising Group'}
+                              label={union.fields.IsUnion ? 'Union' : 'NGO'}
                             />
                             <span className='link'>{union.fields.Name}</span>
                             <span>

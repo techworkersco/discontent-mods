@@ -29,7 +29,7 @@ export default function Page({ article, errorMessage }: PageProps) {
         <article className='space-y-2'>
           <h1 className='font-identity text-4xl md:text-6xl pb-3'>{article.fields.Title}</h1>
           <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-6'>
-            <section className='prose md:col-span-2'
+            <section className='prose md:col-span-2 text-dark'
               dangerouslySetInnerHTML={{ __html: article.body.html }}
             />
             <div className='grid lg:grid-cols-2 lg:col-span-2 gap-6'>

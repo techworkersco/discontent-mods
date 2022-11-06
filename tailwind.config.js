@@ -57,6 +57,7 @@ module.exports = {
       colors: {
         transparent: 'transparent',
         inherit: 'white',
+        white: '#fefefe',
         red: 'red',
         dark: 'black',
         gwYellow: '#EBFF00',
