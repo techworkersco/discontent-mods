@@ -258,7 +258,7 @@ export function SolidarityActionsTimeline ({
     }}>
       <OrganisingGroupDialog data={selectedUnion} onClose={() => { router.push(returnHref, undefined, { shallow: true, scroll: false }) }} />
       <div className="flex flex-col lg:flex-row">
-        <section className='relative bg-white flex-1'>
+        <section className='relative bg-white dark:bg-black flex-1'>
           <div className='p-4 lg:p-5 xl:pl-7 flex flex-col flex-nowrap md:h-screen sticky top-5 space-y-4'>
             <section className='flex-grow-0'>
               <div className='flex flex-wrap w-full justify-between text-sm'>
@@ -412,7 +412,7 @@ export function SolidarityActionsTimeline ({
                   {({ open }) => (
                     <>
                     <Listbox.Button>
-                      <FilterButton label='Union' selectionCount={selectedOrganisingGroups.length} isOpen={open} />
+                      <FilterButton label='Groups' title="Unions or NGOs" selectionCount={selectedOrganisingGroups.length} isOpen={open} />
                     </Listbox.Button>
                     <Listbox.Options>
                       <div className='listbox-dropdown'>
@@ -456,7 +456,7 @@ export function SolidarityActionsTimeline ({
                     type='search' 
                     value={filterText}
                     onChange={e => setFilterText(e.target.value.trimStart())}
-                    className='rounded-lg border-2 border-gray-300 px-3 py-2 text-sm font-semibold w-full hover:border-2 transition duration-75'
+                    className='rounded-lg border-2 border-gray-300 px-3 py-2 text-sm font-semibold w-full hover:border-2 transition duration-75 dark:text-black'
                   />
                 </div>
               </div>
@@ -485,7 +485,7 @@ export function SolidarityActionsTimeline ({
 
           {!!relevantGroups.length && hasFilters && (
             <article>
-              <h3 className='text-3xl font-light font-identity'>Related unions and groups</h3>
+              <h3 className='text-3xl font-light font-identity'>Related unions & NGOs</h3>
               <ul className='list space-y-1 my-3'>
                 <Disclosure>
                   {({ open }) => (
@@ -504,11 +504,11 @@ export function SolidarityActionsTimeline ({
                             />
                             <span className='link'>{union.fields.Name}</span>
                             <span>
-                              <span className='inline-block ml-2 text-gray-400 rounded-full text-xs'>
+                              <span className='inline-block ml-2 text-gray dark:text-white-400 rounded-full text-xs'>
                                 {union.fields.IsUnion ? 'Union' : 'NGO'} in
                               </span>
                               &nbsp;
-                              <span className='inline-block text-gray-400 rounded-full text-xs'>
+                              <span className='inline-block text-gray dark:text-white-400 rounded-full text-xs'>
                                 {stringifyArray(union.geography.country.map(g => g.name))}
                               </span>
                             </span>

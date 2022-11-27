@@ -74,7 +74,7 @@ export const OrganisingGroupCard = ({ data, withPadding = true, withContext = tr
   return (
     <>
       <article className={cx('space-y-2px rounded-xl overflow-hidden')}>
-        <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white')}>
+        <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white dark:bg-black dark:text-white')}>
           <div className='text-sm'>
             <div className='flex flex-wrap tracking-tight'>
               <span className='pr-3'>{data.fields.IsUnion ? "Union" : "NGO"}</span>
@@ -129,12 +129,12 @@ export const OrganisingGroupCard = ({ data, withPadding = true, withContext = tr
             </div>
           </div>
         </div>
-        <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white')}>
+        <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white dark:bg-black')}>
           Have more info about this {data.fields.IsUnion ? "union" : "ngo"}? <a className='link' href={`mailto:${projectStrings.email}`}>Let us know &rarr;</a>
         </div>
         {withContext && (
           <div className='grid gap-[2px] grid-cols-2'>
-            <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white')}>
+            <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white dark:bg-black')}>
               <SolidarityActionRelatedActions
                 name={data.fields.Name}
                 metadata={pluralize('related action', data.fields["Solidarity Actions"]?.length, true)}
@@ -143,7 +143,7 @@ export const OrganisingGroupCard = ({ data, withPadding = true, withContext = tr
               />
             </div>
             {data.fields.countryCodes?.map(code =>
-              <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white')} key={code}>
+              <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white dark:bg-black')} key={code}>
                 <SolidarityActionCountryRelatedActions
                   countryCode={code}
                 />

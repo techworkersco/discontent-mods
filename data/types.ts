@@ -1,9 +1,31 @@
 ///////////
 // Airtable
 
-import type { Attachment, Base as BaseRecord } from 'airtable'
+export interface BaseRecord {
+  id: string;
+  createdTime: string;
+}
 
-export type { Attachment, BaseRecord }
+export interface Attachment {
+  id: string;
+  url: string;
+  filename: string;
+  size: number;
+  type: string;
+  thumbnails: Thumbnails;
+}
+
+export interface Thumbnails {
+  small: Thumbnail;
+  large: Thumbnail;
+  full?: Thumbnail;
+}
+
+export interface Thumbnail {
+  url: string;
+  width: number;
+  height: number;
+}
 
 ////// Package and third party
 
@@ -148,7 +170,7 @@ export interface SolidarityActionAirtableRecord extends BaseRecord {
     DisplayStyle?: "Featured" | null
     hasPassedValidation?: boolean,
     Public?: boolean,
-    isUnionGroups?: boolean[]
+    isUnionGroups?: (null | boolean)[]
   },
   id: string
 }
@@ -178,7 +200,7 @@ export interface SolidarityActionAirtableRecord extends BaseRecord {
     DisplayStyle?: "Featured" | null
     hasPassedValidation?: boolean,
     Public?: boolean,
-    isUnionGroups?: boolean[]
+    isUnionGroups?: (null | boolean)[]
   },
 }
 

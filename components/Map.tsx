@@ -493,10 +493,10 @@ const CountryPopup = memo(
         longitude={lng}
         closeButton={false}
         closeOnClick={false}
-        className='min-w-[170px] country-popup'
+        className='min-w-[170px] country-popup text-dark'
       >
         <div
-          className='px-2 py-2'
+          className='px-2 py-2 dark:text-black'
           onClick={() =>
             router.push(
               `/?country=${exampleAction.fields.countrySlug?.[0] || ""}`,
@@ -562,7 +562,7 @@ const MapMarker = ({
         }}
       >
         <div className='space-x-1 text-center'>
-          <div className='transition duration-250 text-xs bg-white text-black inline capitalize font-bold tracking-tight  px-1 rounded-xl pointer-events-none'>
+          <div className='transition duration-250 text-xs bg-white dark:bg-black text-black dark:text-white inline capitalize font-bold tracking-tight  p-1 rounded-xl pointer-events-none'>
             {!!data.fields?.CategoryEmoji?.length && (
               <span className='text-sm pr-1'>
                 <Emoji symbol={data.fields.CategoryEmoji?.[0]} />
@@ -626,7 +626,7 @@ const ClusterMarker = ({
         }}
         className='relative'
       >
-        <div className='text-center items-center inline-flex flex-row transition duration-250 bg-gwYellow text-black font-bold tracking-tight px-1 rounded-xl leading-none'>
+        <div className='text-center items-center inline-flex flex-row transition duration-250 bg-gwYellow text-black dark:text-white font-bold tracking-tight px-1 rounded-xl leading-none'>
           <span className='text-sm align-middle pr-1 leading-none'>
             {label ||
               actions
@@ -644,7 +644,7 @@ const ClusterMarker = ({
           <span className='align-middle text-sm'>{actions.length}</span>
         </div>
         {isSelected && (
-          <div className='bg-white p-1 rounded-xl max-w-md overflow-hidden truncate divide-y absolute top-100 left-0'>
+          <div className='bg-white dark:bg-black dark:text-dark p-1 rounded-xl max-w-md overflow-hidden truncate divide-y absolute top-100 left-0'>
             {actions.filter(Boolean).map(action => (
               <div key={action.slug}>
                 <div

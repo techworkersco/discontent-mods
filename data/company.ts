@@ -13,7 +13,6 @@ export const formatCompany = (company: Company) => {
 
   try {
     // Remove any keys not expected by the parser
-        // @ts-expect-error
     company = companySchema.parse(company)
   } catch(e) {
     console.error(JSON.stringify(company), e)
@@ -49,7 +48,6 @@ export async function getCompanies (selectArgs: QueryParams<Company['fields']> =
       ],
       fields: fields,
       maxRecords: 1000,
-      // view: env.get('AIRTABLE_TABLE_VIEW_COMPANIES').default('Grid view').asString(),
       filterByFormula: 'COUNTA({Solidarity Actions}) > 0',
       ...selectArgs
     }).eachPage(function page(records, fetchNextPage) {
@@ -76,7 +74,6 @@ export async function getCompanyBy (selectArgs: QueryParams<Company['fields']> =
       // ],
       fields: fields,
       maxRecords: 1,
-      // view: env.get('AIRTABLE_TABLE_VIEW_COMPANIES').default('Grid view').asString(),
       ...selectArgs
     }).firstPage(function page(error, records) {
       try {

@@ -6,6 +6,6 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ['dl.airtable.com'],
+    domains: ['dl.airtable.com', 'v5.airtableusercontent.com'],
   },
 }

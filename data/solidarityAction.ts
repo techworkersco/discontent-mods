@@ -6,7 +6,6 @@ import {
   openStreetMapReverseGeocodeResponseSchema,
 } from "./schema";
 import { QueryParams } from "airtable/lib/query_params";
-import coords from "country-coords";
 import { airtableFilterAND } from "../utils/airtable";
 import { parseMarkdown } from "./markdown";
 import { geocodeOpenStreetMap } from "./geo";

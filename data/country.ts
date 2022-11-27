@@ -33,7 +33,6 @@ export const formatCountry = (country: Country) => {
 
   try {
     // Remove any keys not expected by the parser
-        // @ts-expect-error
     country = countrySchema.parse(country)
   } catch(e) {
     console.error(JSON.stringify(country), e)

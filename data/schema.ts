@@ -90,6 +90,7 @@ export const staticPageSchema = baseRecordSchema.extend({
     Public: z.literal(true),
   }),
   body: copyTypeSchema,
+  id: z.string(),
 });
 
 export const menuItemSchema = baseRecordSchema.extend({
@@ -98,6 +99,7 @@ export const menuItemSchema = baseRecordSchema.extend({
     url: z.string(),
     placement: z.array(z.union([z.literal("Header"), z.literal("Footer")])),
   }),
+  id: z.string(),
 });
 
 export const thumbnailsSchema = z.object({
@@ -169,9 +171,10 @@ export const solidarityActionAirtableRecordSchema = baseRecordSchema.extend({
     CategoryName: z.array(z.string()).optional(),
     CategoryEmoji: z.array(z.string()).optional(),
     Document: z.array(attachmentSchema).optional(),
-    DisplayStyle: z.union([z.literal("Featured"), z.null()]).optional(),
+    DisplayStyle: z.literal("Featured").optional().nullable(),
     hasPassedValidation: z.boolean().optional(),
     Public: z.boolean().optional(),
+    isUnionGroups: z.array(z.boolean().nullable()).optional(),
   }),
 });
 
@@ -180,14 +183,16 @@ export const solidarityActionSchema = solidarityActionAirtableRecordSchema.and(
     geography: geographySchema,
     summary: copyTypeSchema,
     slug: z.string(),
-    fields: z.any().and(
+    fields: solidarityActionAirtableRecordSchema.shape.fields.and(
       z.object({
         Name: z.string(),
         Date: z.string(),
         Public: z.literal(true),
-        LastModified: z.string()
+        LastModified: z.string(),
+        hasPassedValidation: z.literal(true),
       })
     ),
+    id: z.string(),
   })
 );
 
@@ -203,6 +208,7 @@ export const blogPostSchema = baseRecordSchema.extend({
     Public: z.literal(true),
   }),
   body: copyTypeSchema,
+  id: z.string(),
 });
 
 export const organisingGroupSchema = baseRecordSchema.extend({
@@ -213,15 +219,16 @@ export const organisingGroupSchema = baseRecordSchema.extend({
     slug: z.string().optional(),
     Name: z.string(),
     "Full Name": z.string().optional(),
-    Country: z.array(z.string()).optional(),
-    countryName: z.array(z.string()).optional(),
-    countryCode: z.array(z.string()).optional(),
+    Countries: z.array(z.string()).optional(),
+    countryNames: z.array(z.string()).optional(),
+    countryCodes: z.array(z.string()).optional(),
     IsUnion: z.boolean().optional(),
     Website: z.string().optional(),
     Twitter: z.string().optional(),
     "Solidarity Actions": z.array(z.string()).optional(),
     LastModified: z.string(),
   }),
+  id: z.string(),
 });
 
 export const companySchema = baseRecordSchema.extend({
@@ -232,6 +239,7 @@ export const companySchema = baseRecordSchema.extend({
   }),
   solidarityActions: z.array(solidarityActionSchema).optional(),
   summary: copyTypeSchema,
+  id: z.string(),
 });
 
 export const categorySchema = baseRecordSchema.extend({
@@ -243,6 +251,7 @@ export const categorySchema = baseRecordSchema.extend({
   }),
   solidarityActions: z.array(solidarityActionSchema).optional(),
   summary: copyTypeSchema,
+  id: z.string(),
 });
 
 export const countrySchema = baseRecordSchema.extend({
@@ -259,4 +268,5 @@ export const countrySchema = baseRecordSchema.extend({
   solidarityActions: z.array(solidarityActionSchema).optional(),
   organisingGroups: z.array(organisingGroupSchema).optional(),
   summary: copyTypeSchema,
+  id: z.string(),
 });

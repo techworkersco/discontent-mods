@@ -8,6 +8,7 @@ import ErrorPage from '../../pages/404'
 import Image from 'next/image';
 import { DateTime } from '../../components/Date';
 import { BlogPostThumbnail } from '../../components/BlogPost';
+import { projectStrings } from '../../data/site';
 
 type PageProps = { article: BlogPost | null, moreArticles: BlogPost[], errorMessage?: string }
 type PageParams = { slug: string }
@@ -26,7 +27,7 @@ export default function Page({ moreArticles, article, errorMessage }: PageProps)
           images: [
             {
               url: article.fields.Image[0].url,
-              alt: 'Game Worker Solidarity',
+              alt: projectStrings.name,
             }
           ]
         }) : ({
@@ -43,7 +44,7 @@ export default function Page({ moreArticles, article, errorMessage }: PageProps)
           {!!article.fields.Image?.[0].thumbnails ? (
             <>
               <div className='flex flex-col justify-center space-y-4'>
-                <h1 className='font-identity text-5xl md:text-6xl'>{article.fields.Title}</h1>
+                <h1 className='font-identity text-5xl md:text-6xl dark:text-white'>{article.fields.Title}</h1>
                 {article.fields.ByLine && <p className='text-xl font-light'>{article.fields.ByLine}</p>}
               </div>
               <div className='rounded-lg shadow-gwPink overflow-hidden'>
@@ -66,7 +67,7 @@ export default function Page({ moreArticles, article, errorMessage }: PageProps)
           )}
         </header>
         <div className='space-y-4'>
-          <div className='prose text-lg' dangerouslySetInnerHTML={{ __html: article.body.html }} />
+          <div className='prose dark:prose-invert text-lg' dangerouslySetInnerHTML={{ __html: article.body.html }} />
         </div>
       </article>
 
