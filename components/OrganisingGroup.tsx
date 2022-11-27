@@ -34,18 +34,18 @@ export const OrganisingGroupDialog = (
       <Dialog
         open={!!data}
         onClose={onClose}
-        className="fixed z-40 inset-0 overflow-y-auto"
+        className="fixed z-40 inset-0 overflow-y-auto dark:text-white"
       >
         {!!data && (
           <>
             <OrganisingGroupSEO data={data} />
-            <Dialog.Overlay className="fixed z-10 inset-0 bg-dark opacity-80" />
+            <Dialog.Overlay className="fixed z-10 inset-0 bg-dark opacity-90" />
             <div className='absolute z-20 w-full max-w-4xl top-[15%] left-1/2 transform -translate-x-1/2 py-5 p-4'>
               <Dialog.Title className='hidden'>{data.fields.Name}</Dialog.Title>
               <Dialog.Description className='hidden'>{data.fields.IsUnion ? "Union" : "NGO"} in {stringifyArray(...data.fields?.countryNames || [])}</Dialog.Description>
               <button
                 type="button"
-                className="mb-3 rounded-xl px-2 py-1 border-box"
+                className="mb-3 rounded-xl px-2 py-1 border-box dark:text-white"
                 onClick={onClose}
               >
                 &larr; Back
@@ -73,7 +73,7 @@ export const OrganisingGroupCard = ({ data, withPadding = true, withContext = tr
   console.log(data.fields)
   return (
     <>
-      <article className={cx('space-y-2px rounded-xl overflow-hidden')}>
+      <article className={cx('space-y-2px rounded-xl overflow-hidden dark:text-white')}>
         <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white dark:bg-black dark:text-white')}>
           <div className='text-sm'>
             <div className='flex flex-wrap tracking-tight'>
@@ -129,12 +129,12 @@ export const OrganisingGroupCard = ({ data, withPadding = true, withContext = tr
             </div>
           </div>
         </div>
-        <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white dark:bg-black')}>
+        <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white dark:bg-black dark:text-white')}>
           Have more info about this {data.fields.IsUnion ? "union" : "ngo"}? <a className='link' href={`mailto:${projectStrings.email}`}>Let us know &rarr;</a>
         </div>
         {withContext && (
           <div className='grid gap-[2px] grid-cols-2'>
-            <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white dark:bg-black')}>
+            <div className={cx(withPadding && 'md:px-8', 'p-4 bg-white dark:bg-black dark:text-white')}>
               <SolidarityActionRelatedActions
                 name={data.fields.Name}
                 metadata={pluralize('related action', data.fields["Solidarity Actions"]?.length, true)}
