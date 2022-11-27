@@ -19,8 +19,24 @@ export default function PageLayout({ children }: { children: any }) {
   );
 }
 
-function ThemeToggle({ }: { systemDark: boolean, theme: string }) {
+function ThemeToggle({}: { systemDark: boolean; theme: string }) {}
 
+function Logo({ big }: { big?: boolean }) {
+  return (
+    <div
+      className={cx(
+        `leading-none text-4xl`,
+        big ? "md:text-[4vw]" : "",
+        "font-identity cursor-pointer dark:text-white hover:text-black flex-shrink-0"
+      )}
+    >
+      <Link href='/'>
+        <>
+          <span className='text-gwRed'>Dis</span>content Moderators
+        </>
+      </Link>
+    </div>
+  );
 }
 
 function Header({}: {}) {
@@ -42,69 +58,64 @@ function Header({}: {}) {
     setSystemDark(window.matchMedia("(prefers-color-scheme: dark)").matches);
   }, []);
 
-  const ThemeSelect = () => (            <select
-    className='bg-white dark:bg-black p-2'
-    onChange={e => {
-      const value = e.target?.value;
-      let darkMode =
-        window.localStorage.getItem("theme") === "dark";
+  const ThemeSelect = () => (
+    <select
+      title='Color scheme selector'
+      className='bg-white dark:bg-black p-2 cursor-pointer'
+      onChange={e => {
+        const value = e.target?.value;
+        let darkMode = window.localStorage.getItem("theme") === "dark";
 
-      if (value === "system") {
-        setThemeState(null);
-        window.localStorage.removeItem("theme");
-        darkMode = window.matchMedia("(prefers-color-scheme: dark)")
-          .matches;
-        setSystemDark(darkMode);
-      } else if (value) {
-        setThemeState(value);
-        window.localStorage.setItem("theme", value);
-        darkMode = value === "dark";
-      }
-      if (darkMode) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    }}
-  >
-    <option
-      className='dark:bg-black'
-      selected={!theme}
-      value='system'
-      label={(systemDark ? "🌒" : "☀️") + " System"}
-    />
-    <option
-      className='dark:bg-black'
-      selected={theme === "dark"}
-      value='dark'
-      label={"🌒 Dark Mode"}
-    />
-    <option
-      className='dark:bg-black'
-      selected={theme === "light"}
-      value='light'
-      label={"☀️ Light Mode"}
-    />
-  </select>)
+        if (value === "system") {
+          setThemeState(null);
+          window.localStorage.removeItem("theme");
+          darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          setSystemDark(darkMode);
+        } else if (value) {
+          setThemeState(value);
+          window.localStorage.setItem("theme", value);
+          darkMode = value === "dark";
+        }
+        if (darkMode) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }}
+    >
+      <option
+        className='dark:bg-black'
+        selected={!theme}
+        value='system'
+        label={(systemDark ? "🌒" : "☀️") + " System"}
+      />
+      <option
+        className='dark:bg-black'
+        selected={theme === "dark"}
+        value='dark'
+        label={"🌒 Dark"}
+      />
+      <option
+        className='dark:bg-black'
+        selected={theme === "light"}
+        value='light'
+        label={"☀️ Light"}
+      />
+    </select>
+  );
 
   return (
     <>
       <header className='py-5 space-y-2' ref={headerRef} id='static-header'>
         <div className='content-wrapper'>
-          <div className='sm:flex sm:space-x-4 space-y-2 sm:space-y-0 items-top'>
-            <div className='leading-none text-4xl lg:text-[4vw] font-identity cursor-pointer dark:text-white hover:text-black flex-shrink-0'>
-              <Link href='/'>
-                <>
-                  <span className='text-gwRed'>Dis</span>content Moderators
-                </>
-              </Link>
-            </div>
+          <div className='sm:flex sm:space-x-2 space-y-2 sm:space-y-0 items-top'>
+            <Logo big />
             <p className='leading-normal sm:leading-tight text-xl xl:text-2xl md:w-1/2 block text-200 max-w-2xl font-light flex-shrink-0'>
               Mapping and documenting collective movements by platform content
               moderation workers striving to improve their working conditions.
             </p>
-            <div>
-                <ThemeSelect />
+            <div className='order-end flex'>
+              {!isFloating && <ThemeSelect />}
             </div>
           </div>
         </div>
@@ -115,10 +126,13 @@ function Header({}: {}) {
         }`}
         id='sticky-header'
       >
-        <div className='text-sm md:text-base content-wrapper w-full flex flex-row flex-wrap align-items-stretch justify-start -mx-1 space-x-1 md:-mx-2 md:space-x-3 '>
+        <div className='text-sm md:text-base content-wrapper w-full flex flex-row flex-wrap flex-grow align-items-stretch justify-start -mx-1 space-x-1 md:-mx-2 md:space-x-3 align-middle'>
           {isFloating && (
-            <Link href='/'>
-              <span className='text-gwRed font-identity leading-none text-4xl order-first' style={{ minWidth: 20 }}>
+            <Link className='hidden sm:block' href='/'>
+              <span
+                className='block md:hidden text-gwRed font-identity leading-none text-4xl order-first'
+                style={{ minWidth: 20 }}
+              >
                 D
               </span>
             </Link>
@@ -132,24 +146,19 @@ function Header({}: {}) {
               <span className='nav-link'>{link.fields.label}</span>
             </a>
           ))}
-  
+
           <div
             className={cx(
               isFloating
                 ? "opacity-100 max-w-6xl translate-x-0 bg-white dark:bg-black"
                 : "opacity-0 translate-x-2",
-              "hidden md:block transform ml-auto duration-200 transition-all leading-none text-xl lg:text-2xl font-identity cursor-pointer hover:text-blackLight flex flex-shrink-0 order-1 md:order-last"
+              "hidden md:block transform ml-auto duration-200 transition-all leading-none text-xl lg:text-2xl font-identity cursor-pointer hover:text-blackLight flex flex-shrink-0 order-1 md:order-last align-middle"
             )}
             style={{ marginLeft: "auto" }}
           >
-            <Link href='/'>Discontent Moderators</Link>
+            <Logo />
           </div>
-          <div className="order-end flex">
-          {isFloating && (
-                            <ThemeSelect />
-
-          )}
-          </div>
+          <div className='order-end flex self-end'>{isFloating && <ThemeSelect />}</div>
         </div>
       </nav>
       <div id='portal-node' />
@@ -175,7 +184,7 @@ function Footer({}: {}) {
               <a
                 href={link.fields.url}
                 key={link.fields.url}
-                className='hover:text-black dark:hover:bg-light dark:hover:text-black'
+                className='hover:text-black dark:hover:bg-white dark:hover:text-white inline-block'
               >
                 <span className='nav-link'>{link.fields.label}</span>
               </a>

@@ -412,7 +412,7 @@ export function SolidarityActionsTimeline ({
                   {({ open }) => (
                     <>
                     <Listbox.Button>
-                      <FilterButton label='Union' selectionCount={selectedOrganisingGroups.length} isOpen={open} />
+                      <FilterButton label='Groups' title="Unions or NGOs" selectionCount={selectedOrganisingGroups.length} isOpen={open} />
                     </Listbox.Button>
                     <Listbox.Options>
                       <div className='listbox-dropdown'>

@@ -22,6 +22,8 @@ body {
     Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
     text-transform: uppercase;
+    letter-spacing: -1px;
+    /* word-spacing: -1px; */
 }
 
 @layer utilities {

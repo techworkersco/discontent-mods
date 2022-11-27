@@ -4,15 +4,17 @@ import pluralize from 'pluralize';
 export function FilterButton ({
   label = 'Select',
   selectionCount,
-  isOpen
+  isOpen,
+  title
 }: {
   label?: string
   selectionCount?: number
   isOpen?: boolean
+  title?: string
 }) {
   const hasSelections = !!selectionCount
   return (
-    <div className={cx(
+    <div title={title} className={cx(
       !isOpen && !hasSelections ? 'border-gray-300' : '',
       isOpen ? 'border-b-0 rounded-b-none bg-white dark:bg-black z-50 border-gwPink' : '',
       hasSelections ? 'border-gwRed' : '',
