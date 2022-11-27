@@ -17,12 +17,30 @@ export const defaultOGImageStack = [
   },
 ];
 
+let darkMode = false
+// if (darkMode) {
+//   document.documentElement.classList.add("dark");
+// } else {
+//   document.documentElement.classList.remove("dark");
+// }
+
 function MyApp({ Component, pageProps, headerLinks, footerLinks }) {
   const canonicalURL = useCanonicalURL();
 
   const router = useRouter();
 
   useEffect(() => {
+
+
+    darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches ?? window.localStorage.getItem('theme') === 'dark';
+
+    if(darkMode) {
+      console.log({darkMode})
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+
     // Fathom.load('OZSKHUQE', {
     //   includedDomains: ['gameworkersolidarity.com', 'www.gameworkersolidarity.com'],
     //   url: 'https://skunk.gameworkersolidarity.com/script.js',

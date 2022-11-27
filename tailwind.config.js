@@ -12,7 +12,7 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}'
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     screens: {
       sm: '640px',
@@ -59,7 +59,8 @@ module.exports = {
         inherit: 'white',
         white: '#fefefe',
         red: 'red',
-        dark: 'black',
+        black: '#0E0E0E',
+        dark: '#0E0E0E',
         gwYellow: '#EBFF00',
         gwRed: '#fe2901',
         gwRedLight: polished.lighten(0.1, '#fe2901'),
@@ -114,6 +115,7 @@ module.exports = {
               fontStyle: 'normal',
               border: 'none',
               margin: 'none',
+              color: theme('colors.dark'),
               // background: `0% 0% url(/images/spaceinvader.png) no-repeat`,
               // backgroundSize: '32px 38px',
               paddingLeft: 40,

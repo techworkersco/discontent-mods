@@ -95,7 +95,7 @@ export function SolidarityActionDialog({
               </Dialog.Description>
               <button
                 type='button'
-                className='mb-3 rounded-xl px-2 py-1 border-box bg-white'
+                className='mb-3 rounded-xl px-2 py-1 border-box bg-white dark:bg-black dark:text-white'
                 onClick={onClose}
               >
                 &larr; Back
@@ -339,7 +339,7 @@ export function SolidarityActionItem({ data }: { data: SolidarityAction }) {
   const isFeatured = data.fields.DisplayStyle === "Featured";
 
   return (
-    <article className={cx("bg-white rounded-xl p-4 text-sm")}>
+    <article className={cx("bg-white dark:bg-black rounded-xl p-4 text-sm")}>
       <ActionMetadata data={data} />
       <div>
         {isFeatured ? (
@@ -379,7 +379,7 @@ export function SolidarityActionItem({ data }: { data: SolidarityAction }) {
             <a href={link} className='inline-block pr-1' key={link}>
               <Emoji symbol='🔗' label={`${new URL(link).hostname} link`} className='align-baseline' />
               &nbsp;
-              <span className='align-baseline underline text-dark'>
+              <span className='align-baseline underline'>
                 {new URL(link).hostname}
               </span>
             </a>
@@ -409,10 +409,10 @@ export function DocumentLink({
           {doc.filename}
         </span>
         &nbsp;
-        <span className='text-gray-500'>{doc.type}</span>
+        <span className='text-gray dark:text-white-500'>{doc.type}</span>
       </span>
       {withPreview && doc?.thumbnails && (
-        <div className='inline-block overflow-hidden border border-black rounded-xl mt-4'>
+        <div className='inline-block overflow-hidden border border-dark rounded-xl mt-4'>
           <Image
             src={doc.thumbnails.large.url}
             width={doc.thumbnails.large.width}
@@ -486,8 +486,8 @@ export function SolidarityActionCard({
               : defaultOGImageStack,
         }}
       />
-      <article className={cx("space-y-2px rounded-xl overflow-hidden")}>
-        <div className='p-4 md:px-8 bg-white'>
+      <article className={cx("space-y-2px rounded-xl overflow-hidden dark:text-white")}>
+        <div className='p-4 md:px-8 bg-white dark:bg-black'>
           <div className='text-sm'>
             <ActionMetadata data={data} />
           </div>
@@ -503,10 +503,10 @@ export function SolidarityActionCard({
           )}
           <div className='block mt-3 text-sm'>
           {data.fields.Link && data.fields.Link.replace('\n\n', ',').replace('\n', ',').split(',').map(link => (
-            <a href={link} className="block mb-2" title={`a related ${new URL(link).hostname} link`}>
+            <a href={link} className="block mb-2" title={`a related ${new URL(link).hostname} link`} key={link}>
               <Emoji symbol='🔗' label={`${new URL(link).hostname} link`} className='align-baseline' />
               &nbsp;
-              <span className='align-baseline underline text-dark'>
+              <span className='align-baseline underline'>
                 {new URL(link).hostname}
               </span>
             </a>
@@ -514,7 +514,7 @@ export function SolidarityActionCard({
           </div>
         </div>
         {data.fields.Document?.length && (
-          <div className='p-4 md:px-8 bg-white text-sm'>
+          <div className='p-4 md:px-8 bg-white dark:bg-black text-sm'>
             <div className='font-semibold pb-2'>Attachments</div>
             <div className='grid gap-4'>
               {data.fields.Document.map(doc => (
@@ -523,7 +523,7 @@ export function SolidarityActionCard({
             </div>
           </div>
         )}
-        <div className='p-4 md:px-8 bg-white'>
+        <div className='p-4 md:px-8 bg-white dark:bg-black dark:bg-black'>
           Have more info about this action?{" "}
           <a className='link' href={`mailto:${projectStrings.email}`}>
             Let us know &rarr;
@@ -532,12 +532,12 @@ export function SolidarityActionCard({
         {withContext && (
           <div className='grid gap-[2px] grid-cols-2'>
             {data.fields.countryCode?.map(code => (
-              <div className='p-4 md:px-8 bg-white' key={code}>
+              <div className='p-4 md:px-8 bg-white dark:bg-black' key={code}>
                 <SolidarityActionCountryRelatedActions countryCode={code} />
               </div>
             ))}
             {data.fields.CategoryName?.map((categoryName, i) => (
-              <div className='p-4 md:px-8 bg-white' key={categoryName}>
+              <div className='p-4 md:px-8 bg-white dark:bg-black' key={categoryName}>
                 <SolidarityActionRelatedActions
                   subtitle='Category'
                   url={`/?category=${categoryName}`}
@@ -551,7 +551,7 @@ export function SolidarityActionCard({
               </div>
             ))}
             {data.fields["Organising Groups"]?.map((organisingGroupId, i) => (
-              <div className='p-4 md:px-8 bg-white' key={organisingGroupId}>
+              <div className='p-4 md:px-8 bg-white dark:bg-black' key={organisingGroupId}>
                 <SolidarityActionRelatedActions
                   subtitle={
                     data.fields?.isUnionGroups && data.fields.isUnionGroups[i]
@@ -565,7 +565,7 @@ export function SolidarityActionCard({
               </div>
             ))}
             {data.fields.companyName?.map((companyName, i) => (
-              <div className='p-4 md:px-8 bg-white' key={companyName}>
+              <div className='p-4 md:px-8 bg-white dark:bg-black' key={companyName}>
                 <SolidarityActionRelatedActions
                   subtitle='Company'
                   url={`/?company=${companyName}`}
@@ -629,7 +629,7 @@ export function SolidarityActionRelatedActions({
     <Link href={url || "/"} shallow={false}>
       <div className='cursor-pointer group'>
         <div className='font-bold'>{name || "More actions"}</div>
-        {subtitle && <div className='text-xs text-gray-500'>{subtitle}</div>}
+        {subtitle && <div className='text-xs text-gray dark:text-white-500'>{subtitle}</div>}
         <div className='link mt-1'>
           {buttonLabel || <span>{metadata || "All actions"} &rarr;</span>}
         </div>

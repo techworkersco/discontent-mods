@@ -26,9 +26,9 @@ export default function Page({ article, errorMessage }: PageProps) {
 
       <section className='content-wrapper py-5'>
         <article className='space-y-2'>
-          <h1 className='font-identity text-4xl md:text-6xl pb-3'>{article.fields.Title}</h1>
+          <h1 className='font-identity dark:text-white text-4xl md:text-6xl pb-3'>{article.fields.Title}</h1>
           <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-6'>
-            <section className='prose prose-neutral md:col-span-2 text-dark'
+            <section className='prose dark:prose-invert dark:text-white md:col-span-2'
               dangerouslySetInnerHTML={{ __html: article.body.html }}
             />
             <div className='grid lg:grid-cols-2 lg:col-span-2 gap-6'>

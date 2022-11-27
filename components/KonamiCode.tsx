@@ -27,7 +27,7 @@ export function KonamiCode () {
             <p>We weren't creative enough to actually make any content for the easter egg, but there you are!</p>
             <p>(The real easter egg is the solidarity you build with your coworkers.)</p>
           </Dialog.Description>
-          <button className='button border-black' onClick={close}>Close</button>
+          <button className='button border-dark' onClick={close}>Close</button>
         </div>
       </div>
     </Dialog>

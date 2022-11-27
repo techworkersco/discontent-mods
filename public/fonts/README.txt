@@ -14,7 +14,7 @@ that aren’t available as static fonts. Not all apps support variable fonts, an
 in those cases you can use the static font files for Big Shoulders Stencil Text:
   static/BigShouldersStencilText-Thin.ttf
   static/BigShouldersStencilText-ExtraLight.ttf
-  static/BigShouldersStencilText-Light.ttf
+  static/BigShouldersStenciltext-white.ttf
   static/BigShouldersStencilText-Regular.ttf
   static/BigShouldersStencilText-Medium.ttf
   static/BigShouldersStencilText-SemiBold.ttf

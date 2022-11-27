@@ -101,7 +101,7 @@ export function CumulativeChart ({
               stroke: 'transparent'
             },
             tickLabel: {
-              className: 'font-mono fill-current text-gray-400 text-xs',
+              className: 'font-mono fill-current text-gray dark:text-white-400 text-xs',
               dominantBaseline: "top",
               textAnchor: "middle"
             }

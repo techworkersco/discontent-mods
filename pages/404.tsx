@@ -14,7 +14,7 @@ export default function Page({ message }: { message?: string }) {
       />
 
       <div className='content-wrapper my-5 space-y-3'>
-        <h1 className='font-identity text-9xl text-center text-gray-300'>
+        <h1 className='font-identity text-9xl text-center text-gray dark:text-white-300'>
           404
         </h1>
         {message && <h2 className='text-3xl text-center'>{message}</h2>}
