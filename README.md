@@ -1,4 +1,4 @@
-#  [gameworkersolidarity.com](https://gameworkersolidarity.com)
+# A fork of [gameworkersolidarity.com](https://gameworkersolidarity.com)
 
 Game Worker Solidarity is mapping and documenting collective movements by game workers striving to improve their working conditions. We're collecting materials created by workers for these movements and aim to document the longer history of resistance in the industry which goes back to its formation.
 
