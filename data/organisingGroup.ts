@@ -23,7 +23,6 @@ export const formatOrganisingGroup = (organisingGroup: OrganisingGroup) => {
 
   try {
     // Remove any keys not expected by the parser
-        // @ts-expect-error
     organisingGroup = organisingGroupSchema.parse(organisingGroup)
   } catch(e) {
     console.error(JSON.stringify(organisingGroup), e)
@@ -47,7 +46,7 @@ export async function getOrganisingGroups (selectArgs: QueryParams<OrganisingGro
           groups.filter(a =>
             organisingGroupSchema.safeParse(a).success === true
           )
-        )
+        ) 
       } catch (e) {
         reject(e)
       }
@@ -89,7 +88,7 @@ export async function getOrganisingGroupBy (selectArgs: QueryParams<OrganisingGr
       try {
         if (error) console.error(error)
         if (error || !records?.length) {
-          return reject(`No group was found for filter ${JSON.stringify(selectArgs)}`)
+          return reject(`No union or NGO was found for filter ${JSON.stringify(selectArgs)}`)
         }
         const organisingGroup = records?.[0]._rawJson
         resolve(formatOrganisingGroup(organisingGroup))
@@ -123,13 +122,12 @@ export type OrganisingGroupData = {
 export const getOrganisingGroupDataByName = async (name: string): Promise<OrganisingGroupData> => {
   const organisingGroup = await getOrganisingGroupByName(name)
   if (!organisingGroup) {
-    throw new Error("No such organising group was found for this code.")
+    throw new Error("No such union or NGO was found for this code.")
   }
 
   const solidarityActions = await getLiveSolidarityActionsByOrganisingGroupId(organisingGroup.id)
 
   return {
-    // @ts-expect-error
     organisingGroup: {
       ...organisingGroup,
       solidarityActions

@@ -89,16 +89,16 @@ module.exports = {
       typography: theme => ({
         DEFAULT: {
           css: {
-            color: '#eeeeee',
-            h1: { color: '#eeeeee' },
-            h2: { color: '#eeeeee' },
-            h3: { color: '#eeeeee' },
-            h4: { color: '#eeeeee' },
-            h5: { color: '#eeeeee' },
+            color: theme('colors.dark'),
+            h1: { color:  theme('colors.dark') },
+            h2: { color:  theme('colors.dark') },
+            h3: { color:  theme('colors.dark') },
+            h4: { color:  theme('colors.dark') },
+            h5: { color:  theme('colors.dark') },
             a: {
-              color: '#eeeeee',
+              color: theme('colors.gwRed'),
               '&:hover': {
-                color: '#eeeeee',
+                color: theme('colors.gwRedLighter'),
               },
             },
             p: {

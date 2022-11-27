@@ -376,7 +376,7 @@ export function SolidarityActionItem({ data }: { data: SolidarityAction }) {
         )}
         <div className="block">
           {data.fields.Link && data.fields.Link.replace('\n\n', ',').replace('\n', ',').split(',').map(link => (
-            <a href={link} className='inline-block'>
+            <a href={link} className='inline-block pr-1' key={link}>
               <Emoji symbol='🔗' label={`${new URL(link).hostname} link`} className='align-baseline' />
               &nbsp;
               <span className='align-baseline underline text-dark'>

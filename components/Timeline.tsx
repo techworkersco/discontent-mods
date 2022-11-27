@@ -485,7 +485,7 @@ export function SolidarityActionsTimeline ({
 
           {!!relevantGroups.length && hasFilters && (
             <article>
-              <h3 className='text-3xl font-light font-identity'>Related unions and groups</h3>
+              <h3 className='text-3xl font-light font-identity'>Related unions & NGOs</h3>
               <ul className='list space-y-1 my-3'>
                 <Disclosure>
                   {({ open }) => (

@@ -7,7 +7,6 @@ import { QueryParams } from 'airtable/lib/query_params';
 export const formatMenuItem = (blog: MenuItem): MenuItem => {
   try {
     // Remove any keys not expected by the parser
-    // @ts-expect-error
     blog = menuItemSchema.parse(blog)
   } catch(e) {
     console.error(JSON.stringify(blog), e)

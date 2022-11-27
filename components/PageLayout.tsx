@@ -89,6 +89,7 @@ function Footer ({ }: { }) {
               <a
                 href={link.fields.url}
                 key={link.fields.url}
+                className="hover:text-dark"
               >
                 <span className='nav-link'>{link.fields.label}</span>
               </a>

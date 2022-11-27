@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import { DateTime } from './Date';
 
 export function BlogPostThumbnail({ blog: b }: { blog: BlogPost }) {
+
   return (
     <Link href={`/analysis/${b.fields.Slug}`} key={b.fields.Slug}>
       <article className='bg-white rounded-lg p-4 space-y-3 cursor-pointer'>
