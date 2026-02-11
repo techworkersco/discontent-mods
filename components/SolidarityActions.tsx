@@ -5,7 +5,7 @@ import { format, getYear } from "date-fns";
 import Fuse from "fuse.js";
 import { NextSeo } from "next-seo";
 import { useContextualRouting } from "next-use-contextual-routing";
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import pluralize from "pluralize";
@@ -417,6 +417,7 @@ export function DocumentLink({
             src={doc.thumbnails.large.url}
             width={doc.thumbnails.large.width}
             height={doc.thumbnails.large.height}
+            alt={doc.filename || ''}
           />
         </div>
       )}

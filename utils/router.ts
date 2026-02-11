@@ -1,4 +1,4 @@
-import { NextRouter } from "next/dist/client/router"
+import { NextRouter } from "next/router"
 
 import scrollIntoView from 'scroll-into-view'
 

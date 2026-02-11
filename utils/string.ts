@@ -10,7 +10,7 @@ export const unique = <T>(...ds: T[]) => {
   return Array.from(new Set(ds))
 }
 
-export const firstOf = <T>(obj: T, keys: Array<keyof T>, fallbackToAny?: boolean) => {
+export const firstOf = <T extends Record<string, unknown>>(obj: T, keys: Array<keyof T>, fallbackToAny?: boolean) => {
   for (const key of keys) {
     if (obj[key] !== undefined && obj[key] !== null) return obj[key]
   }

@@ -49,10 +49,11 @@ export default function Page({ moreArticles, article, errorMessage }: PageProps)
               </div>
               <div className='rounded-lg shadow-gwPink overflow-hidden'>
                 <Image
-                  layout='responsive'
                   src={article.fields.Image[0].thumbnails.full?.url || article.fields.Image[0].url}
                   width={article.fields.Image[0].thumbnails.large.width}
                   height={article.fields.Image[0].thumbnails.large.height}
+                  style={{ width: '100%', height: 'auto' }}
+                  alt={article.fields.Title || ''}
                 />
               </div>
               <div className='pb-5' />

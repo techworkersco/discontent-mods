@@ -1,6 +1,6 @@
 import { useRef, useEffect, Dispatch, SetStateAction, useState } from 'react';
 import qs from 'query-string';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 import { useDebouncedCallback } from 'use-debounce'
 import isEqual from 'lodash.isequal'
 import { diff as jsondiff, jsonPatchPathConverter, Operation } from 'just-diff';
@@ -67,7 +67,7 @@ export function useURLStateFactory () {
     )
 
     // Look for initial value from `key`
-    const initialUrlValue = qs.parseUrl(router.asPath).query[key]
+    const initialUrlValue = qs.parseUrl(router.asPath).query[key] as string | string[] | null
     const initialStateValue = serialiseObjectToState(key, initialUrlValue)
 
     // Initialise state
@@ -78,7 +78,7 @@ export function useURLStateFactory () {
       const handleRouteChange = (url, { shallow }) => {
         if (shallow) return
         const params = qs.parseUrl(url)
-        const nextState = serialiseObjectToState(key, params.query[key])
+        const nextState = serialiseObjectToState(key, params.query[key] as string | string[] | null)
         if (isEqual(state, nextState)) return
         // console.info(`Syncing new URL params to state`, key, state, nextState)
         setState(nextState)

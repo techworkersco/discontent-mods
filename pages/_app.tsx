@@ -60,7 +60,7 @@ function MyApp({ Component, pageProps, headerLinks, footerLinks }) {
   return (
     <SWRConfig
       value={{
-        initialData: { ...pageProps, headerLinks, footerLinks },
+        fallbackData: { ...pageProps, headerLinks, footerLinks },
         ...doNotFetch(),
       }}
     >

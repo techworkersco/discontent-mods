@@ -1,5 +1,5 @@
 
-import { getServerSideSitemap } from 'next-sitemap'
+import { getServerSideSitemapLegacy } from 'next-sitemap'
 import { GetServerSideProps } from 'next'
 import { actionUrl, getLiveSolidarityActions } from '../../data/solidarityAction'
 import { projectStrings } from '../../data/site'
@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     ))
   ]
 
-  return getServerSideSitemap(ctx, fields)
+  return getServerSideSitemapLegacy(ctx, fields)
 }
 
 export default function Sitemap () {}

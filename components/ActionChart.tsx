@@ -1,7 +1,7 @@
 import { ParentSize } from '@visx/responsive';
 import {
   Axis,
-  BarSeries, ThemeContext, XYChart
+  BarSeries, XYChart
 } from '@visx/xychart';
 import { bin, HistogramGeneratorNumber } from "d3-array";
 import { timeMonth, timeMonths, timeYears } from 'd3-time';
@@ -87,35 +87,35 @@ export function CumulativeChart ({
   const isSmallScreen = !useMediaQuery(up('xl'))
 
   return (
-    <ThemeContext.Provider value={{
-      backgroundColor: 'transparent',
-      colors: [theme`colors.gwPink50`],
-      axisStyles: {
-        x: {
-          // @ts-ignore
-          bottom: {
-            axisLine: {
-              stroke: theme`colors.gray.500`
-            },
-            tickLine: {
-              stroke: 'transparent'
-            },
-            tickLabel: {
-              className: 'font-mono fill-current text-gray dark:text-white-400 text-xs',
-              dominantBaseline: "top",
-              textAnchor: "middle"
+    <XYChart
+      theme={{
+        backgroundColor: 'transparent',
+        colors: [theme`colors.gwPink50`],
+        axisStyles: {
+          x: {
+            // @ts-ignore
+            bottom: {
+              axisLine: {
+                stroke: theme`colors.gray.500`
+              },
+              tickLine: {
+                stroke: 'transparent'
+              },
+              tickLabel: {
+                className: 'font-mono fill-current text-gray dark:text-white-400 text-xs',
+                dominantBaseline: "text-before-edge",
+                textAnchor: "middle"
+              }
             }
           }
         }
-      }
-    }}>
-      <XYChart
-        width={width}
-        height={height}
-        xScale={{ type: 'band' }}
-        yScale={{ type: 'linear' }}
-        margin={{ left: 0, right: 0, bottom: 50, top: 0 }}
-      >
+      }}
+      width={width}
+      height={height}
+      xScale={{ type: 'band' }}
+      yScale={{ type: 'linear' }}
+      margin={{ left: 0, right: 0, bottom: 50, top: 0 }}
+    >
       <BarSeries
         dataKey="Frequency"
         data={binnedData as any} {...accessors}
@@ -127,7 +127,6 @@ export function CumulativeChart ({
         orientation="bottom"
         tickFormat={timeFormat(isSmallScreen ? "%y" : "%Y")}
       />
-      </XYChart>
-    </ThemeContext.Provider>
+    </XYChart>
   )
 }

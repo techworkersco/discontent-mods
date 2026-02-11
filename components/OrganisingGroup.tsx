@@ -3,7 +3,7 @@ import { OrganisingGroup } from '../data/types';
 import { stringifyArray } from '../utils/string';
 import Emoji from 'a11y-react-emoji';
 import pluralize from 'pluralize';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 import { NextSeo } from "next-seo";
 import cx from 'classnames';
 import { SolidarityActionCountryRelatedActions, SolidarityActionRelatedActions } from "./SolidarityActions";

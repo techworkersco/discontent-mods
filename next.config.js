@@ -6,6 +6,9 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ['dl.airtable.com', 'v5.airtableusercontent.com'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'dl.airtable.com' },
+      { protocol: 'https', hostname: 'v5.airtableusercontent.com' },
+    ],
   },
 }

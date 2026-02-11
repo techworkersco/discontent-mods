@@ -18,7 +18,7 @@ import { Dictionary, groupBy, merge } from "lodash";
 import { Map as MapboxMap } from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useContextualRouting } from "next-use-contextual-routing";
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 import pluralize from "pluralize";
 import {
   createContext,
@@ -101,7 +101,7 @@ export function Map({
     []
   );
 
-  const mapRef = useRef<{ _map: MapboxMap }>(null);
+  const mapRef = useRef<any>(null);
 
   const { countries, hasFilters } = useContext(FilterContext);
   const displayStyle = !hasFilters ? "summary" : "detail";
@@ -384,7 +384,7 @@ const CountryLayer = memo(
       wikidata_id: string;
       worldview: string;
     }>();
-    const map = useContext<MapboxMap>(MapContext);
+    const map = useContext(MapContext) as unknown as MapboxMap;
 
     // Reset the popup when you switch between summary and detail view
     const router = useRouter();
@@ -596,10 +596,10 @@ const ClusterMarker = ({
   const router = useRouter();
   const { makeContextualHref, returnHref } = useContextualRouting();
 
-  const marker = useRef<Marker>();
+  const marker = useRef<any>();
 
   useEffect(() => {
-    if (marker.current._el) {
+    if (marker.current?._el) {
       if (isSelected) {
         (marker.current._el as HTMLDivElement).classList.add("z-30");
       } else {
@@ -614,9 +614,9 @@ const ClusterMarker = ({
       longitude={longitude}
       latitude={latitude}
       anchor='bottom'
-      className={isSelected ? "z-30" : "z-10"}
     >
       <div
+        className={`relative ${isSelected ? "z-30" : "z-10"}`}
         onClick={() => {
           if (isSelected) {
             setSelected(null);
@@ -624,7 +624,6 @@ const ClusterMarker = ({
             setSelected(clusterMarkerId);
           }
         }}
-        className='relative'
       >
         <div className='text-center items-center inline-flex flex-row transition duration-250 bg-gwYellow text-black dark:text-white font-bold tracking-tight px-1 rounded-xl leading-none'>
           <span className='text-sm align-middle pr-1 leading-none'>

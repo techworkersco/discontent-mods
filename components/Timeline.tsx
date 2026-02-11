@@ -11,7 +11,7 @@ import pluralize from 'pluralize';
 import { useURLStateFactory } from '../utils/state';
 import { ensureArray, toggleInArray, stringifyArray } from '../utils/string';
 import { Listbox, Disclosure } from '@headlessui/react'
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import { useContextualRouting } from 'next-use-contextual-routing';
 import { OrganisingGroupCard, OrganisingGroupDialog, useSelectedOrganisingGroup } from '../components/OrganisingGroup';
@@ -491,13 +491,12 @@ export function SolidarityActionsTimeline ({
                   {({ open }) => (
                     <>
                       {relevantGroups.slice(0, open ? 1000 : UNION_DISPLAY_LIMIT).map(union =>
-                        <Link
-                          href={makeContextualHref({ [unionDialogKey]: union.id })}
-                          as={groupUrl(union)}
-                          shallow
-                          key={union.id}
-                        >
-                          <li className='space-x-1'>
+                        <li className='space-x-1' key={union.id}>
+                          <Link
+                            href={makeContextualHref({ [unionDialogKey]: union.id })}
+                            as={groupUrl(union)}
+                            shallow
+                          >
                             <Emoji
                               symbol={categories.find(c => c.fields.Name === 'union')?.fields.Emoji || '🤝'}
                               label={union.fields.IsUnion ? 'Union' : 'NGO'}
@@ -512,8 +511,8 @@ export function SolidarityActionsTimeline ({
                                 {stringifyArray(union.geography.country.map(g => g.name))}
                               </span>
                             </span>
-                          </li>
-                        </Link>
+                          </Link>
+                        </li>
                       )}
                       {(relevantGroups.length || 0) > UNION_DISPLAY_LIMIT && (
                         <Disclosure.Button>

@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 import PageLayout from '../components/PageLayout';
 
 export default function Page({ message }: { message?: string }) {
